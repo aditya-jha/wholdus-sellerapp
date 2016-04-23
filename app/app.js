@@ -1,26 +1,21 @@
 var sellerapp = angular.module('SellerApp', [
-  'ngRoute',
-  'ngAnimate',
-  'LocalStorageModule',
-  'angular-loading-bar',
-  'ui.bootstrap',
-  'toaster'
+    'ngRoute',
+    'ngMaterial',
+    'ngMessages'
 ]);
 
 sellerapp.config([
-  '$routeProvider',
-  '$locationProvider',
-  'localStorageServiceProvider',
-  'cfpLoadingBarProvider',
-  function($routeProvider, $locationProvider, localStorageServiceProvider, cfpLoadingBarProvider) {
+    '$routeProvider',
+    '$locationProvider',
+    '$mdThemingProvider',
+    function($routeProvider, $locationProvider, $mdThemingProvider) {
 
-      
-      $routeProvider.otherwise('/404');
+        $routeProvider.when('/', {
+            templateUrl: "views/sellerSignup.html",
+            controller: "RegistrationController"
+        });
 
-      $locationProvider.html5Mode(true);
-      localStorageServiceProvider.setPrefix('SellerApp');
-
-      cfpLoadingBarProvider.includeSpinner = false;
-      cfpLoadingBarProvider.latencyThreshold = 0;
-  }
+        $mdThemingProvider.theme('docs-dark', 'default').primaryPalette('yellow').dark();
+        $locationProvider.html5Mode(true);
+    }
 ]);
