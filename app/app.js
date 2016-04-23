@@ -1,7 +1,8 @@
 var sellerapp = angular.module('SellerApp', [
     'ngRoute',
     'ngMaterial',
-    'ngMessages'
+    'ngMessages',
+    'ngProgress'
 ]);
 
 sellerapp.config([
