@@ -1,0 +1,17 @@
+<md-sidenav
+    class="md-sidenav-left"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-md')"
+    md-whiteframe="4"
+    flex
+    >
+
+    <md-list>
+        <md-list-item data-ng-repeat="item in sidenavOptions">
+            <md-button>
+                <md-icon md-svg-src="{{ item.icon }}" class="avatar"></md-icon>
+                {{ item.label }}
+            </md-button>
+        </md-list-item>
+    </md-list>
+</md-sidenav>

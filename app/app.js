@@ -9,14 +9,20 @@ sellerapp.config([
     '$routeProvider',
     '$locationProvider',
     '$mdThemingProvider',
-    function($routeProvider, $locationProvider, $mdThemingProvider) {
+    '$mdIconProvider',
+    function($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
 
         $routeProvider.when('/', {
             templateUrl: "views/sellerSignup.html",
             controller: "RegistrationController"
+        }).when('/my-profile', {
+            templateUrl: 'views/sellerProfile.html',
+            controller: "ProfileController"
         });
 
-        $mdThemingProvider.theme('docs-dark', 'default').primaryPalette('yellow').dark();
         $locationProvider.html5Mode(true);
+        $mdThemingProvider.theme('docs-dark', 'default').primaryPalette('yellow').dark();
+
+        $mdIconProvider.defaultIconSet('./styles/icons.svg', 128);
     }
 ]);
