@@ -21,6 +21,9 @@ sellerapp.config([
         }).when('/my-orders', {
             templateUrl: 'views/sellerOrders.html',
             controller: 'OrderController'
+        }).when('/my-products', {
+            templateUrl: 'views/sellerProducts.html',
+            controller: 'ProductController'
         });
 
         $locationProvider.html5Mode(true);
