@@ -17,16 +17,20 @@
 
                     $scope.sidenavOptions = [{
                         label: 'My Profile',
-                        icon: 'svg-1'
+                        icon: 'svg-1',
+                        url: '/my-profile',
                     }, {
                         label: 'My Orders',
-                        icon: 'svg-2'
+                        icon: 'svg-2',
+                        url: '/my-orders',
                     }, {
                         label: 'My Products',
-                        icon: 'svg-3'
+                        icon: 'svg-3',
+                        url: '/my-products',
                     }, {
                         label: 'Payments',
-                        icon: 'svg-4'
+                        icon: 'svg-4',
+                        url: 'my-payments',
                     }];
                 }
             ]

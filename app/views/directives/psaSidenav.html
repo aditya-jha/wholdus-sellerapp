@@ -7,8 +7,8 @@
     >
 
     <md-list>
-        <md-list-item data-ng-repeat="item in sidenavOptions">
-            <md-button>
+        <md-list-item data-ng-repeat="item in sidenavOptions" flex>
+            <md-button href="{{ item.url }}">
                 <md-icon md-svg-src="{{ item.icon }}" class="avatar"></md-icon>
                 {{ item.label }}
             </md-button>

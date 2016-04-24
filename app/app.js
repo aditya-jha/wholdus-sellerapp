@@ -18,6 +18,9 @@ sellerapp.config([
         }).when('/my-profile', {
             templateUrl: 'views/sellerProfile.html',
             controller: "ProfileController"
+        }).when('/my-orders', {
+            templateUrl: 'views/sellerOrders.html',
+            controller: 'OrderController'
         });
 
         $locationProvider.html5Mode(true);
