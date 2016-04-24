@@ -24,6 +24,10 @@ sellerapp.config([
         }).when('/my-products', {
             templateUrl: 'views/sellerProducts.html',
             controller: 'ProductController'
+        }).when('/my-products/:productslug', {
+            templateUrl: 'views/sellerProductDetail.html',
+            controller: 'ProductController',
+            reloadOnSearch: false
         });
 
         $locationProvider.html5Mode(true);

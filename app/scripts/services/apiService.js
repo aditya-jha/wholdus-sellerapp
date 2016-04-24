@@ -19,7 +19,7 @@
                     headers: headers,
                     transformRequest: transformRequest,
                     data: JSON.stringify(data),
-                    cache: cache
+                    cache: cache ? cache : false
                 });
                 apiPromise.then(function(response) {
                     if(response.data.statusCode === '2XX') {

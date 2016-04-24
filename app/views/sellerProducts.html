@@ -4,22 +4,27 @@
         <div layout="column" layout-fill>
             <div layout="column" flex md-whiteframe="4dp" class="product-card" md-padding data-ng-repeat="p in products">
                 <div layout="row" layout-xs="column" flex>
-                    <div layout="column" class="md-media-lg card-media" hide-xs flex="30" style="background-color:lightblue">
+                    <div layout="column" class="md-media-lg card-media" hide-xs flex="25" style="background-color:lightblue">
                         <img class="card-image" src="images/thumbnail.png" />
                     </div>
-                    <div layout="column" flex="40">
+                    <div layout="column" flex="23">
                         <span>Catalog No. {{ p.details.seller_catalog_number }}</span>
                         <span>Product Name: {{ p.name }}</span>
                         <span>Category: {{ p.category.category_name }}</span>
                     </div>
-                    <div layout="column" flex="30">
+                    <div layout="column" flex="25">
                         <span>Retail Price: Rs. {{ p.price_per_unit }}</span>
                         <span>Min Lot Quantity: {{ p.product_lot[0].lot_size_from }}</span>
                         <span>Lot Size: {{ p.lot_size }} peices per lot</span>
                     </div>
+                    <div layout="column" flex="25">
+                        <span data-ng-repeat="pl in p.product_lot">
+                            {{ pl.lot_size_from }} or more {{ pl.lot_discount }} % discount
+                        </span>
+                    </div>
                 </div>
                 <div layout="row" flex>
-                    <md-button class="md-raised md-primary">View</md-button>
+                    <md-button href="/my-products/{{ p.slug + '-' + p.productID}}" class="md-raised md-primary">View</md-button>
                     <md-button>Hide</md-button>
                     <md-button class="md-warn">Delete</md-button>
                 </div>

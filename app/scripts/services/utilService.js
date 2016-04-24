@@ -4,7 +4,8 @@
     sellerapp.factory('UtilService', [
         '$rootScope',
         '$log',
-        function($rootScope, $log) {
+        '$location',
+        function($rootScope, $log, $location) {
             var factory = {};
 
             factory.formatSellerDataToPost = function(data) {
@@ -45,6 +46,10 @@
                     }
                 };
                 return seller;
+            };
+
+            factory.redirectTo = function(to) {
+                $location.url(to);
             };
 
             return factory;
