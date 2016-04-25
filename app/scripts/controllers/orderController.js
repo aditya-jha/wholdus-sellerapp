@@ -7,13 +7,14 @@
         'ConstantKeyValueService',
         'UtilService',
         '$log',
-        function($scope, $rootScope, APIService, ConstantKeyValueService, UtilService, $log) {
+        '$timeout',
+        function($scope, $rootScope, APIService, ConstantKeyValueService, UtilService, $log, $timeout) {
             $log.log("order controller loaded");
             $scope.settings = {
                 activePage: 0
             };
 
-            $scope.orders = [{}, {}, {}, {}, {}]
+            $scope.orders = [{products:[{}]}, {products:[{}, {}]}, {products:[{}]}];
         }
     ]);
 })();

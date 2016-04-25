@@ -1,1 +1,35 @@
-t
+<div layout="column" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat="o in orders">
+    <span class="order-number"><strong>Order No.</strong></span>
+    <div layout="column" flex data-ng-repeat="p in o.products">
+        <div layout="row" layout-xs="column" flex>
+            <div layout="column" flex="50" flex-xs="100">
+                <span class="product-name">Product Name Product Name Product Name Product Name Product Names</span>
+                <span>Catalog No.</span>
+            </div>
+            <hr flex/></hr>
+            <div layout="row" flex="50" flex-xs="100">
+                <div layout="column" flex-xs="100" flex="50">
+                    <span>20/10/2005</span>
+                    <span>lots: 2</span>
+                    <div layout="row">
+                        <span>Amount</span>
+                        <span>2000</span>
+                    </div>
+                </div>
+                <div layout="column" flex-xs="100" flex="50">
+                    <md-button class="md-raised md-primary">
+                        label
+                    </md-button>
+                    <md-button class="md-raised md-primary">
+                        manifest
+                    </md-button>
+                </div>
+            </div>
+        </div>
+        <hr data-ng-if="!$last"flex/></hr>
+    </div>
+
+
+
+
+</div>
