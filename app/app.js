@@ -21,6 +21,9 @@ sellerapp.config([
         }).when('/my-orders', {
             templateUrl: 'views/sellerOrders.html',
             controller: 'OrderController'
+        }).when('/my-orders/:status', {
+            templateUrl: 'views/sellerOrdersAcknowledge.html',
+            controller: 'OrderController',
         }).when('/my-products', {
             templateUrl: 'views/sellerProducts.html',
             controller: 'ProductController'
