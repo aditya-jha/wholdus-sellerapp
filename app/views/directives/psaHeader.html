@@ -1,5 +1,8 @@
 <md-toolbar layout="row" layout-align="center end">
     <md-content  md-theme="docs-dark" layout="row" flex>
+        <md-button data-ng-if="!hideHam" ng-click="toggleSidenav()" hide-gt-sm>
+            <span class="hamburger md-raised">&#9776;</span>
+        </md-button>
         <h2>Probzip</h2>
         <span flex></span>
     </md-content>

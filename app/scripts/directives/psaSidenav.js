@@ -13,7 +13,10 @@
                 '$scope',
                 '$rootScope',
                 '$log',
-                function($scope, $rootScope, $log) {
+                'UtilService',
+                '$timeout',
+                '$mdSidenav',
+                function($scope, $rootScope, $log, UtilService, $timeout, $mdSidenav) {
 
                     $scope.sidenavOptions = [{
                         label: 'My Profile',
@@ -32,6 +35,19 @@
                         icon: 'svg-4',
                         url: 'my-payments',
                     }];
+
+                    $scope.goTo = function(url) {
+                        $timeout(function() {
+                            UtilService.redirectTo(url);
+                        }, 300);
+                    };
+
+                    $rootScope.$on('toggleSidenav', function() {
+                        if($mdSidenav('sidenav').isOpen()) {
+                            $mdSidenav('sidenav').close();
+                        }
+                        $mdSidenav('sidenav').toggle();
+                    });
                 }
             ]
         };

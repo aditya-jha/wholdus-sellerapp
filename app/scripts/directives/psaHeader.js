@@ -9,8 +9,16 @@
             controller: [
                 '$scope',
                 '$log',
-                function($scope, $log) {
-                    $log.log("loaded");
+                '$rootScope',
+                function($scope, $log, $rootScope) {
+
+                    $scope.toggleSidenav = function() {
+                        $rootScope.$broadcast('toggleSidenav');
+                    };
+
+                    $rootScope.$on('hideHam', function(event, data) {
+                        $scope.hideHam = true;
+                    });
                 }
             ]
         };

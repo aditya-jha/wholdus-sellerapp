@@ -17,6 +17,8 @@
                 items: ConstantKeyValueService.getSellerSignupFormItems(),
             };
 
+            $rootScope.$broadcast('hideHam');
+            
             function postNewSeller() {
                 var data = UtilService.formatSellerDataToPost($scope.tabs.items);
                 var newSeller = APIService.apiCall("POST", APIService.getAPIUrl("sellers"), data);
