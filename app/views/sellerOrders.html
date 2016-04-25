@@ -1,8 +1,19 @@
 <div class="container" layout="row" flex>
     <div layout="row" psa-sidenav></div>
-    <md-content layout="row" class="md-padding" layout-xs="column" layout="row" flex>
-        <div layout="column" flex style="background-color:lightgreen">
-            <span style="background-color:lightblue" flex>content</span>
-        </div>
+    <md-content layout="row" class="md-padding" layout-xs="column" layout-gt-xs="column" flex>
+        <md-tabs md-dynamic-height md-border-bottom md-selected="settings.activePage">
+            <md-tab label="New Orders">
+                <md-content class="md-padding" data-ng-if="settings.activePage==0" data-ng-include="'views/partials/sellerOrdersAcknowledge.html'">
+                </md-content>
+            </md-tab>
+            <md-tab label="To Be Shipped">
+                <md-content class="md-padding" data-ng-if="settings.activePage==1" data-ng-include="'views/partials/sellerOrdersToBeShipped.html'">
+                </md-content>
+            </md-tab>
+            <md-tab label="Shipment">
+                <md-content class="md-padding" data-ng-if="settings.activePage==2" data-ng-include="'views/partials/sellerOrdersShipment.html'">
+                </md-content>
+            </md-tab>
+        </md-tabs>
     </md-content>
 </div>

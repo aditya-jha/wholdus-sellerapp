@@ -22,7 +22,7 @@
                     }, {
                         label: 'My Orders',
                         icon: 'svg-2',
-                        url: '/my-orders/orders-to-acknowledge',
+                        url: '/my-orders',
                     }, {
                         label: 'My Products',
                         icon: 'svg-3',
