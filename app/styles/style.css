@@ -1,7 +1,5 @@
 html, body {
     height: 100%;
-    margin: 0px;
-    padding: 0px;
 }
 
 img {
@@ -89,6 +87,51 @@ md-list-item > a {
 
 .product-detail-image img:last-of-type {
     margin-right: 0px;
+}
+
+.order-acknowledge-card {
+    border-radius: 25px;
+    margin-top: 1em;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.order-acknowledge-card span {
+    font-size: 1em;
+    padding-bottom: 0.4em;
+}
+
+.order-acknowledge-card hr {
+    margin-left: 0.7em;
+    margin-right: 0.7em;
+}
+
+.order-acknowledge-card .order-number {
+    font-size: 1.2em;
+    padding-bottom: 0.5em;
+}
+
+.order-acknowledge-card .order-remarks {
+    padding-left: 1em;
+    position: relative;
+}
+
+.order-remarks .order-remarks-content {
+    position: absolute;
+    bottom: 0;
+    font-size: 0.9em;
+}
+.product-name {
+    margin-bottom: 1em;
+    word-spacing: 0.1em;
+    line-height: 1.3em;
+    font-weight: bold;
+}
+
+.text-span {
+    font-weight: 500;
 }
 /** ngProgress loader css*/
 #ngProgress {

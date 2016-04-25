@@ -3,7 +3,7 @@
     <md-content class="md-padding" flex>
         <div layout="column" layout-fill ng-cloak>
             <div layout="row" data-ng-if="pageSettings.noProducts" layout-align="center center" flex>
-                <h1 class=".md-display-3">{{ pageSettings.noProductsMessage }}</h1>
+                <h1 class="md-display-3">{{ pageSettings.noProductsMessage }}</h1>
             </div>
             <div data-ng-if="products && products.length" layout="column" flex md-whiteframe="4dp" class="product-card" md-padding data-ng-repeat="p in products">
                 <div layout="row" layout-xs="column" flex>
