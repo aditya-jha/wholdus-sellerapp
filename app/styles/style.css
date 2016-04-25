@@ -9,6 +9,10 @@ img {
     height: 100%;
 }
 
+.text-center {
+    text-align: center;
+}
+
 #content {
     padding-left: 40px;
     padding: 5px 40px 0px 40px;
@@ -39,9 +43,10 @@ md-list-item > a {
     -moz-transform: scale(0.70);
 }
 
-.profile-detail-card {
+.profile-detail-card, .product-detail-image {
     margin: 10px;
     border-radius: 25px;
+    padding: 10px;
 }
 
 .profile-detail-card md-input-container {
@@ -50,6 +55,9 @@ md-list-item > a {
 
 .profile-detail-card span {
     margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 1.3em;
+    padding-bottom: 5px;
 }
 
 .profile-detail-card p {
@@ -73,6 +81,15 @@ md-list-item > a {
     border-radius: 20px;
 }
 
+.product-detail-image img {
+    overflow: hidden;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.product-detail-image img:last-of-type {
+    margin-right: 0px;
+}
 /** ngProgress loader css*/
 #ngProgress {
     margin: 0;

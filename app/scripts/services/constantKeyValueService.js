@@ -16,6 +16,10 @@
                     products: 'products',
                 },
                 sellerSuccessSignup: "Your application has been sent for approval. You will soon be contacted by our executive",
+                hideProductMessage: 'This product has now been hidden from the online store',
+                showProductMessage: 'The product will go live on the website once the changes have been verified',
+                noProductsMessage: 'Upload products and start distribution',
+                deleteProductMessage: 'This product has successfully been deleted',
                 sellerSignup: [
                     {
                         label: 'Personal Details',
