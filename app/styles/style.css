@@ -107,10 +107,10 @@ md-list-item > a {
     margin-bottom: 1em;
 }
 
-.order-acknowledge-card span {
+/*.order-acknowledge-card span {
     font-size: 1em;
     padding-bottom: 0.4em;
-}
+}*/
 
 .order-acknowledge-card hr {
     margin: 1em;
@@ -129,15 +129,25 @@ md-list-item > a {
 }
 
 .product-name {
-    margin-bottom: 1em;
-    word-spacing: 0.1em;
     line-height: 1.3em;
+    font-size: 1.5em;
     font-weight: bold;
 }
 
 .text-span {
     font-weight: 500;
 }
+
+.card-item {
+    padding: 0.5em 0px 0.5em 0px;
+}
+
+.card-item-title {
+    font-size: 0.9em;
+    padding: 0px 0px 0.2em 0px;
+    color: #808080;
+}
+
 /** ngProgress loader css*/
 #ngProgress {
     margin: 0;
