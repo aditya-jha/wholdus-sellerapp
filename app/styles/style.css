@@ -98,14 +98,19 @@ md-list-item > a {
     padding: 1em;
 }
 
+.order-acknowledge-card:last-of-type {
+    margin-bottom: 1em;
+}
+
 .order-acknowledge-card span {
     font-size: 1em;
     padding-bottom: 0.4em;
 }
 
 .order-acknowledge-card hr {
-    margin-left: 0.7em;
-    margin-right: 0.7em;
+    margin: 1em;
+    /*margin-left: 1.0em;
+    margin-right: 1.0em;*/
 }
 
 .order-acknowledge-card .order-number {
@@ -114,15 +119,10 @@ md-list-item > a {
 }
 
 .order-acknowledge-card .order-remarks {
-    padding-left: 1em;
+    font-size: 0.9em;
     position: relative;
 }
 
-.order-remarks .order-remarks-content {
-    position: absolute;
-    bottom: 0;
-    font-size: 0.9em;
-}
 .product-name {
     margin-bottom: 1em;
     word-spacing: 0.1em;

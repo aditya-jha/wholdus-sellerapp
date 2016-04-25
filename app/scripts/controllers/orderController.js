@@ -13,6 +13,7 @@
                 activePage: 0
             };
 
+            $scope.orders = [{}, {}, {}, {}, {}]
         }
     ]);
 })();
