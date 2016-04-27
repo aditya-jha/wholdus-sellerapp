@@ -33,7 +33,7 @@
                     }, {
                         label: 'Payments',
                         icon: 'svg-4',
-                        url: 'my-payments',
+                        url: '/my-payments',
                     }];
 
                     $scope.goTo = function(url) {

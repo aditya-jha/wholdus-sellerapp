@@ -30,6 +30,9 @@ sellerapp.config([
             templateUrl: 'views/sellerProductDetail.html',
             controller: 'ProductController',
             reloadOnSearch: false
+        }).when('/my-payments', {
+            templateUrl: 'views/sellerPayments.html',
+            controller: 'PaymentController'
         });
 
         $locationProvider.html5Mode(true);
