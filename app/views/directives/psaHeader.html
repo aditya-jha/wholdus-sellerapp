@@ -1,9 +1,17 @@
 <md-toolbar layout="row" layout-align="center end">
-    <md-content  md-theme="docs-dark" layout="row" flex>
-        <md-button data-ng-if="!hideHam" ng-click="toggleSidenav()" hide-gt-sm>
+    <md-content  md-theme="docs-dark" layout="row" layout-align="center" flex>
+        <md-button data-ng-if="!hideHam" ng-click="toggleSidenav()" hide-gt-sm flex="20">
             <span class="hamburger md-raised">&#9776;</span>
         </md-button>
-        <h2>Probzip</h2>
-        <span flex></span>
+        <h2 class="pageTitle" flex="60">Probzip</h2>
+        <span layout="row" layout-align="end center" flex="20">
+            <md-button data-ng-if="!loggedIn" class="md-primary md-raised" ng-click="showLoginPrompt($event)"  >
+                login
+            </md-button>
+            <md-button data-ng-if="loggedIn" class="md-primary md-raised" ng-click="logout($event)"  >
+                logout
+            </md-button>
+        </span>
+
     </md-content>
 </md-toolbar>

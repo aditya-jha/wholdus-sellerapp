@@ -9,26 +9,37 @@
         function($http, ConstantKeyValueService, $location, $q) {
             var factory = {};
 
+            function transform(obj) {
+                var str = [];
+                for(var p in obj)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                return str.join("&");
+            }
+
             factory.apiCall = function(method, url, data, params, headers, cache, transformRequest) {
                 var deferred = $q.defer();
+
+                if(!transformRequest) {
+                    data = JSON.stringify(data);
+                }
 
                 var apiPromise = $http({
                     method: method,
                     params: params,
                     url: url,
-                    headers: headers,
-                    transformRequest: transformRequest,
-                    data: JSON.stringify(data),
+                    headers: headers ? {'Content-Type': 'application/x-www-form-urlencoded'} : undefined,
+                    transformRequest: transformRequest ? transform : transformRequest,
+                    data: data,
                     cache: cache ? cache : false
                 });
                 apiPromise.then(function(response) {
                     if(response.data.statusCode === '2XX') {
                         deferred.resolve(response.data.body);
                     } else {
-                        $location.url('/404');
                         deferred.reject(response.data.body);
                     }
                 }, function(error) {
+                    $location.url('/404');
                     deferred.reject(error);
                 });
 

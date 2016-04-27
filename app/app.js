@@ -2,7 +2,8 @@ var sellerapp = angular.module('SellerApp', [
     'ngRoute',
     'ngMaterial',
     'ngMessages',
-    'ngProgress'
+    'ngProgress',
+    'LocalStorageModule'
 ]);
 
 sellerapp.config([
@@ -10,9 +11,10 @@ sellerapp.config([
     '$locationProvider',
     '$mdThemingProvider',
     '$mdIconProvider',
-    function($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
+    'localStorageServiceProvider',
+    function($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider, localStorageServiceProvider) {
 
-        $routeProvider.when('/', {
+        $routeProvider.when('/sell', {
             templateUrl: "views/sellerSignup.html",
             controller: "RegistrationController"
         }).when('/my-profile', {
@@ -34,5 +36,7 @@ sellerapp.config([
         $mdThemingProvider.theme('docs-dark', 'default').primaryPalette('yellow').dark();
 
         $mdIconProvider.defaultIconSet('./styles/icons.svg', 128);
+
+        localStorageServiceProvider.setPrefix('probzip-seller');
     }
 ]);
