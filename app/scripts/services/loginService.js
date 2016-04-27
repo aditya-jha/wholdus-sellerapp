@@ -19,6 +19,8 @@
                 factory.seller = response.seller;
 
                 localStorageService.set(ConstantKeyValueService.accessTokenKey, factory.token);
+                //remove this
+                localStorageService.set('seller', factory.seller);
             }
 
             factory.checkLoggedIn = function() {
@@ -26,6 +28,7 @@
                 if(token) {
                     factory.loginStatus = true;
                     factory.token = token;
+                    factory.seller = localStorageService.get('seller');
                 } else {
                     factory.loginStatus = false;
                 }

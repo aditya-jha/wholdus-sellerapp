@@ -51,10 +51,10 @@
                     if(response.data.statusCode === '2XX') {
                         deferred.resolve(response.data.body);
                     } else {
-                        $location.url('/404');
                         deferred.reject(response.data.body);
                     }
                 }, function(error) {
+                    $location.url('/404');
                     deferred.reject(error);
                 });
                 return deferred.promise;
