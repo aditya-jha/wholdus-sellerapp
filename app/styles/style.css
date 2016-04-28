@@ -153,6 +153,9 @@ md-list-item > a {
     color: #808080;
 }
 
+.product-card .card-item {
+    margin-left: 1em;
+}
 /** ngProgress loader css*/
 #ngProgress {
     margin: 0;

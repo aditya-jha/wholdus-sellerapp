@@ -10,20 +10,38 @@
                     <div layout="column" class="md-media-lg card-media" hide-xs flex="25" style="background-color:lightblue">
                         <img class="card-image" src="images/thumbnail.png" />
                     </div>
-                    <div layout="column" flex="23">
-                        <span>Catalog No. {{ p.details.seller_catalog_number }}</span>
-                        <span>Product Name: {{ p.name }}</span>
-                        <span>Category: {{ p.category.category_name }}</span>
+                    <div layout="column" flex="23" flex-xs="100">
+                        <div layout="column" class="card-item">
+                            <span class="card-item-title" flex>Catalog No.</span>
+                            <span>{{ p.details.seller_catalog_number }}</span>
+                        </div>
+                        <div layout="column" class="card-item">
+                            <span>{{ p.name }}</span>
+                        </div>
+                        <div layout="column" class="card-item">
+                            <span class="card-item-title" flex>Category</span>
+                            <span>{{ p.category.category_name }}</span>
+                        </div>
                     </div>
-                    <div layout="column" flex="25">
-                        <span>Retail Price: Rs. {{ p.price_per_unit }}</span>
-                        <span>Min Lot Quantity: {{ p.product_lot[0].lot_size_from }}</span>
-                        <span>Lot Size: {{ p.lot_size }} peices per lot</span>
+                    <div layout="column" flex="25" flex-xs="100">
+                        <div layout="column" class="card-item">
+                            <span class="card-item-title" flex>Retail Price</span>
+                            <span>Rs. {{ p.price_per_unit }}</span>
+                        </div>
+                        <div layout="column" class="card-item">
+                            <span class="card-item-title" flex>Min Lot Quantity</span>
+                            <span>{{ p.product_lot[0].lot_size_from }}</span>
+                        </div>
+                        <div layout="column" class="card-item">
+                            <span class="card-item-title" flex>Lot Size(peices per lot)</span>
+                            <span>{{ p.lot_size }}</span>
+                        </div>
                     </div>
-                    <div layout="column" flex="25">
-                        <span data-ng-repeat="pl in p.product_lot">
-                            {{ pl.lot_size_from }} or more {{ pl.lot_discount }} % discount
-                        </span>
+                    <div layout="column" flex="25" flex-xs="100">
+                        <div layout="column" style="padding-top:0.7em;padding-left:1.0em">
+                            <span class="card-item-title" flex>Lot Pricing</span>
+                            <span data-ng-repeat="pl in p.product_lot" style="margin-top:0.3em;s">{{ pl.lot_size_from }} or more {{ pl.price_per_unit }} per unit</span>
+                        </div>
                     </div>
                 </div>
                 <div layout="row" flex>

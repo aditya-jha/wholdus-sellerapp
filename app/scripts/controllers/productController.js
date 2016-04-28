@@ -112,13 +112,21 @@
 
             $scope.toggleProductStats = function(status, index) {
                 if(status == 1) {
-                    $scope.products.show_online = true;
-                    if(index >= 0) updateProductDetails($scope.products[index], false);
-                    else updateProductDetails($scope.products, false);
+                    if(index>=0) {
+                        $scope.products[index].show_online = true;
+                        updateProductDetails($scope.products[index], false);
+                    } else {
+                        $scope.products.show_online = true;
+                        updateProductDetails($scope.products, false);
+                    }
                 } else if(status === 0) {
-                    $scope.products.show_online = false;
-                    if(index >= 0) updateProductDetails($scope.products[index], true);
-                    else updateProductDetails($scope.products, true);
+                    if(index>=0) {
+                        $scope.products[index].show_online = false;
+                        updateProductDetails($scope.products[index], true);
+                    } else {
+                        $scope.products.show_online = false;
+                        updateProductDetails($scope.products, true);
+                    }
                 } else if(status == -1) {
                     if(index >= 0) deleteProduct($scope.products[index], index);
                     else deleteProduct($scope.products);
