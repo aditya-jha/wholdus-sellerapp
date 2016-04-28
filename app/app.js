@@ -38,7 +38,7 @@ sellerapp.config([
         $locationProvider.html5Mode(true);
         $mdThemingProvider.theme('docs-dark', 'default').primaryPalette('yellow').dark();
 
-        $mdIconProvider.defaultIconSet('./styles/icons.svg', 128);
+        $mdIconProvider.defaultIconSet('./images/icons.svg', 128);
 
         localStorageServiceProvider.setPrefix('probzip-seller');
     }
