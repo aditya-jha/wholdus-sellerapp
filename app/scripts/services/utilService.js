@@ -10,6 +10,7 @@
 
             factory.formatSellerDataToPost = function(data) {
                 var seller = {
+                    sellerID: data[0].sellerID,
                     name: data[0].formItems.name.value,
                     mobile_number: data[0].formItems.mobile_number.value,
                     mobile_verification: false,
@@ -20,6 +21,7 @@
                     company_name: data[1].formItems.company_name.value,
                     company_profile: data[1].formItems.company_profile.value,
                     address: {
+                        addressID: data[2].addressID,
                         address: data[2].formItems.address.value,
                         pincode: data[2].formItems.pincode.value,
                         landmark: data[2].formItems.landmark.value,
@@ -27,6 +29,7 @@
                         city: data[2].formItems.city.value,
                     },
                     details: {
+                        detailsID: data[1].detailsID,
                         vat_tin: data[1].formItems.vat_tin.value,
                         tin_verification: false,
                         cst: data[1].formItems.cst.value,
@@ -49,6 +52,11 @@
             };
 
             factory.assignSellerValues = function(obj, values) {
+                obj[0].sellerID = values.sellerID;
+                obj[2].addressID = values.address[0].addressID;
+                obj[1].detailsID = values.details.detailsID;
+                obj[3].bank_detailsID = values.bank_details.length ? values.bank_details[0].bank_detailsID : null;
+
                 obj[0].formItems.alternate_phone_number.value = values.alternate_phone_number;
                 obj[0].formItems.email.value = values.email;
                 obj[0].formItems.name.value = values.name;
