@@ -43,6 +43,15 @@ var stylesheets = [
     'app/styles/style.css'
 ];
 
+gulp.task('copyViews', function() {
+    return gulp.src('./app/views/**/*.html')
+                .pipe(gulp.dest('./build/views'));
+});
+gulp.task('copyImages', function() {
+    return gulp.src('./app/images/**/*.{png,jpg,svg,jpeg}')
+                .pipe(gulp.dest('./build/images'));
+});
+
 gulp.task('vendorScripts', function() {
     return gulp.src(jsVendors)
                 .pipe(concat('vendor.js'))
@@ -94,4 +103,4 @@ gulp.task('buildCustomScripts', function() {
 gulp.task('default', ['vendorScripts', 'styles']);
 
 // production build
-gulp.task('build', ['buildVendorScripts', 'styles', 'buildCustomScripts']);
+gulp.task('build', ['buildVendorScripts', 'styles', 'buildCustomScripts', 'copyViews', 'copyImages']);
