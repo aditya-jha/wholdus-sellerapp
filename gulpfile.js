@@ -9,7 +9,7 @@ var revReplace = require('gulp-rev-replace');
 var gulpsync = require('gulp-sync')(gulp);
 
 var jsVendors =  [
-    'app/scripts/bower_components/angular/angular.min.js',
+    'app/bower_components/angular/angular.min.js',
     'app/bower_components/angular-route/angular-route.min.js',
     'app/bower_components/angular-animate/angular-animate.min.js',
     'app/bower_components/angular-aria/angular-aria.min.js',
