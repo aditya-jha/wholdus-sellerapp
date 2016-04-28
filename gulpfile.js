@@ -17,6 +17,9 @@ var jsVendors =  [
     'app/bower_components/angular-messages/angular-messages.min.js',
     'app/bower_components/ngprogress/build/ngprogress.min.js',
     'app/bower_components/angular-local-storage/dist/angular-local-storage.min.js',
+];
+
+var jsCustom = [
     'app/app.js',
     'app/scripts/services/constantKeyValueService.js',
     'app/scripts/services/apiService.js',
@@ -53,11 +56,11 @@ gulp.task('buildVendorScripts', function() {
                 .pipe(rename({suffix: '.min'}))
                 .pipe(uglify())
                 .pipe(revAll.revision())
-                .pipe(gulp.dest('build/js'))
+                .pipe(gulp.dest('build/js/vendor'))
                 .pipe(revAll.manifestFile())
-                .pipe(gulp.dest('build/js'))
+                .pipe(gulp.dest('build/js/vendor'))
                 .pipe(revAll.versionFile())
-                .pipe(gulp.dest('build/js'));
+                .pipe(gulp.dest('build/js/vendor'));
 });
 
 gulp.task('styles', function() {
@@ -74,8 +77,22 @@ gulp.task('styles', function() {
                 .pipe(gulp.dest('build/css'));
 });
 
+gulp.task('buildCustomScripts', function() {
+    var revAll = new RevAll();
+    return gulp.src(jsCustom)
+                .pipe(concat('custom.js'))
+                .pipe(rename({suffix: '.min'}))
+                .pipe(uglify())
+                .pipe(revAll.revision())
+                .pipe(gulp.dest('build/js'))
+                .pipe(revAll.manifestFile())
+                .pipe(gulp.dest('build/js'))
+                .pipe(revAll.versionFile())
+                .pipe(gulp.dest('build/js'));
+});
+
 // Default Task
 gulp.task('default', ['vendorScripts', 'styles']);
 
 // production build
-gulp.task('build', ['buildVendorScripts', 'styles']);
+gulp.task('build', ['buildVendorScripts', 'styles', 'buildCustomScripts']);
