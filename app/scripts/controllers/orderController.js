@@ -9,16 +9,20 @@
         '$log',
         '$timeout',
         '$window',
-        'OrderService',
-        function($scope, $rootScope, APIService, ConstantKeyValueService, UtilService, $log, $timeout, $window, OrderService) {
+        'ngProgressBarService',
+        function($scope, $rootScope, APIService, ConstantKeyValueService, UtilService, $log, $timeout, $window, ngProgressBarService) {
             $scope.settings = {
                 activePage: 0
             };
 
             function fetchOrders(params) {
-                OrderService.fetchOrders(params).then(function(response) {
+                $rootScope.$broadcast('showProgressbar');
+                var apicall = APIService.apiCall("GET", APIService.getAPIUrl("orders"), null, params);
+                apicall.then(function(response) {
+                    $rootScope.$broadcast('endProgressbar');
                     $scope.orders = response.order_items;
                 }, function(error) {
+                    $rootScope.$broadcast('endProgressbar');
                     $log.log(error);
                 });
             }
