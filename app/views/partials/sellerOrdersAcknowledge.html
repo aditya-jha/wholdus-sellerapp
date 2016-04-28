@@ -1,13 +1,13 @@
-<div layout="column" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat="o in orders">
+<div layout="column" data-ng-if="orders.length>0" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat="o in orders">
     <div layout="row" layout-xs="column" flex>
         <div layout="column" flex="50" flex-xs="100">
-            <span class="order-number"><strong>Order No.</strong></span>
-            <span class="product-name">Batik Hand Print Viscose Shawl</span>
+            <span class="order-number"><strong>Order No: {{ o.suborder.order.orderID }}</strong></span>
+            <span class="product-name">{{ o.product.name }}</span>
             <div layout="row">
                 <div layout="column" flex="100">
                     <div layout="column" class="card-item">
                         <span class="card-item-title" flex>Catalog No.</span>
-                        <span>CAT-10001</span>
+                        <span>{{ o.product.details.seller_catalog_number }}</span>
                     </div>
                     <div layout="column" class="card-item">
                         <span class="card-item-title" flex>Remarks</span>
@@ -21,30 +21,30 @@
             <div layout="column" flex="50">
                 <div layout="column" class="card-item">
                     <span class="card-item-title" flex>Pieces per lot</span>
-                    <span>5</span>
+                    <span>{{ o.lot_size }}</span>
                 </div>
                 <div layout="column" class="card-item">
                     <span class="card-item-title" flex>lots</span>
-                    <span flex>2</span>
+                    <span flex>{{ o.lots }}</span>
                 </div>
                 <div layout="column" class="card-item">
                     <span class="card-item-title" flex>Price per piece</span>
-                    <span flex>Rs. 200</span>
+                    <span flex>Rs. {{ o.actual_price_per_piece }}</span>
                 </div>
             </div>
             <hr flex/></span>
             <div layout="column" flex="50">
                 <div layout="column" class="card-item">
                     <span class="card-item-title" flex>Order Date</span>
-                    <span>20/10/2005</span>
+                    <span>{{ o.created_at | date }}</span>
                 </div>
                 <div layout="column" class="card-item">
                     <span class="card-item-title" flex>Price per lot</span>
-                    <span flex>Rs. 1200</span>
+                    <span flex>Rs. {{ o.actual_price_per_piece*o.lot_size }}</span>
                 </div>
                 <div layout="column" class="card-item">
                     <span class="card-item-title">Amount</span>
-                    <span>2000</span>
+                    <span>{{ o.final_price }}</span>
                 </div>
             </div>
         </div>

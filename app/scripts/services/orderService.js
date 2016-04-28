@@ -11,7 +11,7 @@
             factory.fetchOrders = function(params) {
                 var deferred = $q.defer();
 
-                var apicall = APIService.apicall("GET", APIService.getAPIUrl("orders"), null, params);
+                var apicall = APIService.apiCall("GET", APIService.getAPIUrl("orders"), null, params);
                 apicall.then(function(response) {
                     deferred.resolve(response);
                 }, function(error) {

@@ -3,6 +3,7 @@
     sellerapp.factory("ConstantKeyValueService", [
         function() {
             var factory = {
+                token: '',
                 apiBaseUrl: 'http://api.probzip.com/',
                 apiUrl: {
                     login: 'admin/login',

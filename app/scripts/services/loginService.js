@@ -10,15 +10,14 @@
             var factory = {};
 
             factory.loginStatus = false;
-            factory.token = null;
             factory.seller = {};
 
             function loginSuccess(response) {
                 factory.loginStatus = true;
-                factory.token = response.token;
                 factory.seller = response.seller;
+                ConstantKeyValueService.token = response.token;
 
-                localStorageService.set(ConstantKeyValueService.accessTokenKey, factory.token);
+                localStorageService.set(ConstantKeyValueService.accessTokenKey, response.token);
                 //remove this
                 localStorageService.set('seller', factory.seller);
             }
@@ -27,7 +26,7 @@
                 var token = localStorageService.get(ConstantKeyValueService.accessTokenKey);
                 if(token) {
                     factory.loginStatus = true;
-                    factory.token = token;
+                    ConstantKeyValueService.token = token;
                     factory.seller = localStorageService.get('seller');
                 } else {
                     factory.loginStatus = false;
@@ -37,7 +36,7 @@
 
             factory.logout = function() {
                 factory.loginStatus = false;
-                factory.token = null;
+                ConstantKeyValueService.token = null;
                 factory.seller = {};
 
                 localStorageService.remove(ConstantKeyValueService.accessTokenKey);
