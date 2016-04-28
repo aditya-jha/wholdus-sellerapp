@@ -54,7 +54,6 @@ gulp.task('buildVendorScripts', function() {
     return gulp.src(jsVendors)
                 .pipe(concat('vendor.js'))
                 .pipe(rename({suffix: '.min'}))
-                .pipe(uglify())
                 .pipe(revAll.revision())
                 .pipe(gulp.dest('build/js/vendor'))
                 .pipe(revAll.manifestFile())
