@@ -35,12 +35,14 @@ sellerapp.config([
             controller: 'PaymentController'
         });
 
+        $routeProvider.otherwise('/my-profile');
+        
         $locationProvider.html5Mode(true);
         $mdThemingProvider.theme('default')
                         .primaryPalette('deep-purple')
                         .accentPalette('orange');
 
-        $mdIconProvider.defaultIconSet('./images/icons.svg', 128);
+        //$mdIconProvider.defaultIconSet('./images/icons.svg', 128);
 
         localStorageServiceProvider.setPrefix('probzip-seller');
     }

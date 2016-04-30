@@ -162,7 +162,7 @@
                                 required: false,
                                 value: ''
                             },
-                            branch_name: {
+                            branch: {
                                 label: "Bank Branch",
                                 type: 'text',
                                 required: false,

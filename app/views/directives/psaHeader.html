@@ -1,20 +1,21 @@
 <md-toolbar class="md-medium-tall md-hue-2" id="header-toolbar">
      <div layout="row" layout-fill>
-         <md-button  aria-label="Settings" flex-xs="20" flex-md="5" flex-gt-md="5" flex-sm="10">
-            <md-icon md-svg-icon="images/wholdus-logo.svg"></md-icon>
+         <span data-ng-if="!hideHam" ng-click="toggleSidenav()" hide-gt-sm class="hamburger md-raised">&#9776;</span>
+         <md-button  aria-label="Settings" flex-xs="15" flex-md="5" flex-gt-md="5" flex-sm="10">
+            <a href="/"><md-icon md-svg-icon="images/wholdus-logo.svg"></md-icon></a>
          </md-button>
          <h1 hide-xs show-gt-xs>
                <a href="/">Wholdus</a>
          </h1>
          <span flex></span>
-         <div layout-sm="row" class="md-padding header-content-right" layout-align="center center">
-              <md-button data-ng-if="!loggedIn" class="accent-color" ng-click="showLoginPrompt($event)"  >
+         <div layout-sm="row" class="md-padding header-content-right" layout-align="center center" hide-xs show-gt-xs>
+             <md-button data-ng-if="!loggedIn" class="accent-color" ng-click="showLoginPrompt($event)"  >
                  login
              </md-button>
              <md-button data-ng-if="loggedIn" class="accent-color" ng-click="logout($event)"  >
                  logout
              </md-button>
-             <md-button hide-xs show-gt-xs aria-label="customer_support">
+             <md-button aria-label="customer_support">
                 <span>+91-7895161705</span>
              </md-button>
          </div>

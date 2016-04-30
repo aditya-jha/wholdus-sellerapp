@@ -14,8 +14,8 @@
                             <input type="{{ i.type }}" ng-model="i.value" ng-required="i.required">
                         </md-input-container>
                         <div layout="row" layout-align="space-between start">
-                            <md-button ng-disabled="tabs.selectedIndex==0" class="md-raised md-warn" data-ng-click="back()">back</md-button>
-                            <md-button class="md-raised md-primary" aria-label="Next" data-ng-click="next()">
+                            <md-button ng-disabled="tabs.selectedIndex==0" class="md-raised" data-ng-click="back()">back</md-button>
+                            <md-button class="md-raised md-warn" aria-label="Next" data-ng-click="next()">
                                 <span data-ng-if="tabs.selectedIndex == tabs.items.length-1">Start Distribution</span>
                                 <span data-ng-if="tabs.selectedIndex != tabs.items.length-1">Next</span>
                             </md-button>

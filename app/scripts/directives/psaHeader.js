@@ -23,7 +23,7 @@
                         if(LoginService.checkLoggedIn()) {
                             $scope.loggedIn = true;
                             if($location.url().indexOf('sell') >= 0) {
-                                $location.url('/');
+                                $location.url('/my-profile');
                             }
                         } else {
                             $scope.loggedIn = false;
@@ -51,7 +51,7 @@
                         .then(function(status) {
                             if(status) {
                                 $scope.loggedIn = true;
-                                $location.url('/');
+                                $location.url('/my-profile');
                             }
                         }, function() {
                             loginState();

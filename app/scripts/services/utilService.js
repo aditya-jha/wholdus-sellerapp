@@ -42,7 +42,7 @@
                         account_holders_name: data[3].formItems.account_holders_name.value,
                         account_number: data[3].formItems.account_number.value,
                         bank_name: data[3].formItems.bank_name.value,
-                        branch_name: data[3].formItems.branch_name.value,
+                        branch: data[3].formItems.branch.value,
                         branch_pincode: data[3].formItems.branch_pincode.value,
                         ifsc: data[3].formItems.ifsc.value,
                         branch_city: data[3].formItems.branch_city.value,
@@ -77,12 +77,13 @@
                 obj[2].formItems.pincode.value = values.address[0].pincode;
                 obj[2].formItems.state.value = values.address[0].state;
 
-                obj[3].formItems.account_holders_name.value = values.bank_details.account_holders_name;
-                obj[3].formItems.account_number.value = values.bank_details.account_number;
-                obj[3].formItems.branch_city.value = values.bank_details.branch_city;
-                obj[3].formItems.branch_name.value = values.bank_details.branch_name;
-                obj[3].formItems.branch_pincode.value = values.bank_details.branch_pincode;
-                obj[3].formItems.ifsc.value = values.bank_details.ifsc;
+                obj[3].formItems.account_holders_name.value = values.bank_details.length ? values.bank_details[0].account_holders_name : null;
+                obj[3].formItems.account_number.value = values.bank_details.length ? values.bank_details[0].account_number : null;
+                obj[3].formItems.branch_city.value = values.bank_details.length ? values.bank_details[0].branch_city : null;
+                obj[3].formItems.bank_name.value = values.bank_details.length ? values.bank_details[0].bank_name : null;
+                obj[3].formItems.branch.value = values.bank_details.length ? values.bank_details[0].branch : null;
+                obj[3].formItems.branch_pincode.value = values.bank_details.length ? values.bank_details[0].branch_pincode : null;
+                obj[3].formItems.ifsc.value = values.bank_details.length ? values.bank_details[0].ifsc : null;
             };
 
             factory.redirectTo = function(to) {

@@ -8,7 +8,7 @@
             var factory = {};
 
             var settings = {
-                color: 'red',
+                color: '#FF5722',
                 height: '3px',
             };
             var progressbar;

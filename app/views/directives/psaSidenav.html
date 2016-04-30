@@ -9,7 +9,7 @@
     <md-list>
         <md-list-item data-ng-repeat="item in sidenavOptions" flex>
             <md-button data-ng-click="goTo(item.url)">
-                <md-icon md-svg-src="{{ item.icon }}" class="avatar"></md-icon>
+                <md-icon md-svg-src="images/svg/{{item.icon}}.svg" class="avatar"></md-icon>
                 {{ item.label }}
             </md-button>
         </md-list-item>
