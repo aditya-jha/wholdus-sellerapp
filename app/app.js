@@ -36,7 +36,9 @@ sellerapp.config([
         });
 
         $locationProvider.html5Mode(true);
-        $mdThemingProvider.theme('docs-dark', 'default').primaryPalette('yellow').dark();
+        $mdThemingProvider.theme('default')
+                        .primaryPalette('deep-purple')
+                        .accentPalette('orange');
 
         $mdIconProvider.defaultIconSet('./images/icons.svg', 128);
 

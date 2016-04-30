@@ -71,7 +71,7 @@
                             company_profile: {
                                 label: 'Company Profile',
                                 type: 'textarea',
-                                required: true,
+                                required: false,
                                 value: '',
                             },
                             pan: {
@@ -95,7 +95,7 @@
                             vat_tin: {
                                 label: 'VAT / TINs',
                                 type: 'text',
-                                required: false,
+                                required: true,
                                 value: '',
                             },
                             cst: {
@@ -112,13 +112,13 @@
                             address: {
                                 label: 'Address',
                                 type: 'textarea',
-                                required: false,
+                                required: true,
                                 value: '',
                             },
                             pincode: {
                                 label: 'Pincode',
                                 type: 'text',
-                                required: false,
+                                required: true,
                                 value: '',
                             },
                             landmark: {
@@ -130,13 +130,13 @@
                             state: {
                                 label: 'State',
                                 type: 'text',
-                                required: false,
+                                required: true,
                                 value: '',
                             },
                             city: {
                                 label: 'City',
                                 type: 'text',
-                                required: false,
+                                required: true,
                                 value: '',
                             }
                         }
@@ -147,43 +147,43 @@
                             account_holders_name: {
                                 label: "Account Holders Name",
                                 type: 'text',
-                                required: true,
+                                required: false,
                                 value: ''
                             },
                             account_number: {
                                 label: "Account Number",
                                 type: 'text',
-                                required: true,
+                                required: false,
                                 value: ''
                             },
                             bank_name: {
                                 label: "Bank Name",
                                 type: 'text',
-                                required: true,
+                                required: false,
                                 value: ''
                             },
                             branch_name: {
                                 label: "Bank Branch",
                                 type: 'text',
-                                required: true,
+                                required: false,
                                 value: ''
                             },
                             branch_pincode: {
                                 label: "branch pincode",
                                 type: 'text',
-                                required: true,
+                                required: false,
                                 value: ''
                             },
                             ifsc: {
                                 label: "IFSC",
                                 type: 'text',
-                                required: true,
+                                required: false,
                                 value: ''
                             },
                             branch_city: {
                                 label: "Branch City",
                                 type: 'text',
-                                required: true,
+                                required: false,
                                 value: ''
                             }
                         }

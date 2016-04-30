@@ -1,17 +1,22 @@
-<md-toolbar layout="row" layout-align="center end">
-    <md-content  md-theme="docs-dark" layout="row" layout-align="center" flex>
-        <md-button data-ng-if="!hideHam" ng-click="toggleSidenav()" hide-gt-sm flex="20">
-            <span class="hamburger md-raised">&#9776;</span>
-        </md-button>
-        <h2 class="pageTitle" flex="60">Probzip</h2>
-        <span layout="row" layout-align="end center" flex="20">
-            <md-button data-ng-if="!loggedIn" class="md-primary md-raised" ng-click="showLoginPrompt($event)"  >
-                login
-            </md-button>
-            <md-button data-ng-if="loggedIn" class="md-primary md-raised" ng-click="logout($event)"  >
-                logout
-            </md-button>
-        </span>
-
-    </md-content>
+<md-toolbar class="md-medium-tall md-hue-2" id="header-toolbar">
+     <div layout="row" layout-fill>
+         <md-button  aria-label="Settings" flex-xs="20" flex-md="5" flex-gt-md="5" flex-sm="10">
+            <md-icon md-svg-icon="images/wholdus-logo.svg"></md-icon>
+         </md-button>
+         <h1 hide-xs show-gt-xs>
+               <a href="/">Wholdus</a>
+         </h1>
+         <span flex></span>
+         <div layout-sm="row" class="md-padding header-content-right" layout-align="center center">
+              <md-button data-ng-if="!loggedIn" class="accent-color" ng-click="showLoginPrompt($event)"  >
+                 login
+             </md-button>
+             <md-button data-ng-if="loggedIn" class="accent-color" ng-click="logout($event)"  >
+                 logout
+             </md-button>
+             <md-button hide-xs show-gt-xs aria-label="customer_support">
+                <span>+91-7895161705</span>
+             </md-button>
+         </div>
+     </div>
 </md-toolbar>
