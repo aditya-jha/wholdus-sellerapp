@@ -15,7 +15,7 @@
                     </md-input-container>
                     <md-input-container>
                         <label>Catergory</label>
-                        <input type="text" ng-model="products.category.category_name" ng-required="true" ng-disabled="true">
+                        <input type="text" ng-model="products.category.display_name" ng-required="true">
                     </md-input-container>
                     <md-input-container>
                         <label>Catalog Number</label>
@@ -23,15 +23,15 @@
                     </md-input-container>
                 </div>
             </div>
-            <div class="md-padding product-detail-image" md-whiteframe="4dp" flex>
+            <div class="product-detail-image" md-whiteframe="4dp">
                 <div flex layout-xs="column" layout-gt-xs="row" layout-align="center">
-                    <img src="images/thumbnail.png" alt="image" />
-                    <img src="images/thumbnail.png" alt="image" />
+                    <img data-ng-if="products" data-ng-src="{{getImageUrl()}}" alt="{{products.name}}" />
+                    <!-- <img data-ng-src="{{getImageUrl()}}" alt="{{products.name}}" /> -->
                 </div>
-                <div flex layout-xs="column" layout-gt-xs="row" layout-align="center">
+                <!-- <div flex layout-xs="column" layout-gt-xs="row" layout-align="center">
                     <img src="images/thumbnail.png" alt="image" />
                     <img src="images/thumbnail.png" alt="image" />
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -44,12 +44,8 @@
                         <input type="text" ng-model="products.details.gender">
                     </md-input-container>
                     <md-input-container>
-                        <label>Fabric</label>
-                        <input type="text" ng-model="products.details.fabric">
-                    </md-input-container>
-                    <md-input-container>
-                        <label>GSM</label>
-                        <input type="text" ng-model="products.details.gsm">
+                        <label>Fabric / GSM</label>
+                        <input type="text" ng-model="products.details.fabric_gsm">
                     </md-input-container>
                     <md-input-container>
                         <label>Pattern</label>
@@ -90,7 +86,7 @@
                     <span class="text-center">Pricing</span>
                     <md-input-container>
                         <label>Packaging Details / Lot Description</label>
-                        <textarea type="text" ng-model="products.details.lot_description" cols="10" ng-required="true"></textarea>
+                        <textarea type="text" ng-model="products.details.packaging_details" cols="10" ng-required="true"></textarea>
                     </md-input-container>
                     <md-input-container>
                         <label>Retail Price Per Unit</label>

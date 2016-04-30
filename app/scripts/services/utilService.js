@@ -52,6 +52,12 @@
             };
 
             factory.assignSellerValues = function(obj, values) {
+                if(values.bankdetails) {
+                    values.bank_details = values.bankdetails;
+                    if(values.bankdetails.length) {
+                        values.bank_details[0].bank_detailsID = values.bankdetails[0].bankdetailsID;
+                    }
+                }
                 obj[0].sellerID = values.sellerID;
                 obj[2].addressID = values.address[0].addressID;
                 obj[1].detailsID = values.details.detailsID;

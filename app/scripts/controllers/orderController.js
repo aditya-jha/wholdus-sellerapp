@@ -12,15 +12,20 @@
         'ngProgressBarService',
         function($scope, $rootScope, APIService, ConstantKeyValueService, UtilService, $log, $timeout, $window, ngProgressBarService) {
             $scope.settings = {
-                activePage: 0
+                activePage: 0,
+                noOrders: false
             };
 
             function fetchOrders(params) {
+                $scope.settings.noOrders = false;
                 $rootScope.$broadcast('showProgressbar');
                 var apicall = APIService.apiCall("GET", APIService.getAPIUrl("orders"), null, params);
                 apicall.then(function(response) {
                     $rootScope.$broadcast('endProgressbar');
                     $scope.orders = response.order_items;
+                    if(response.order_items.length === 0) {
+                        $scope.settings.noOrders = true;
+                    }
                 }, function(error) {
                     $rootScope.$broadcast('endProgressbar');
                     $log.log(error);

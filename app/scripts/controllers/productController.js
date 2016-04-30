@@ -17,6 +17,16 @@
                 noProducts: false
             };
 
+            $scope.getImageUrl = function(p, index) {
+                if(!p) {
+                     p = $scope.products;
+                }
+                var imagePath = p.image_path;
+                imagePath = imagePath.substr(7);
+                var url = ConstantKeyValueService.apiBaseUrl + imagePath + '200x200/' + p.image_name + '-1.jpg';
+                return url;
+            };
+
             function init() {
                 if(isProductDetailPage()) {
                     fetchProducts({

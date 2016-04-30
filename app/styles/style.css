@@ -164,6 +164,8 @@ md-list-item > a {
 
 .product-card img {
     border-top-left-radius:25px;
+    max-height: 200px;
+    max-width: 150px;
 }
 .product-card .md-button {
     border-radius: 20px;
@@ -172,7 +174,8 @@ md-list-item > a {
 .product-detail-image img {
     overflow: hidden;
     margin-right: 10px;
-    margin-bottom: 5px;
+    max-height: 200px;
+    max-width: 200px;
 }
 
 .product-detail-image img:last-of-type {

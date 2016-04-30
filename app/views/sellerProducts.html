@@ -7,8 +7,8 @@
             </div>
             <div data-ng-if="products && products.length" layout="column" flex md-whiteframe="4dp" class="product-card" md-padding data-ng-repeat="p in products">
                 <div layout="row" layout-xs="column" flex>
-                    <div layout="column" class="md-media-lg card-media" hide-xs flex="25" style="background-color:lightblue">
-                        <img class="card-image" src="images/thumbnail.png" />
+                    <div layout="column" class="md-media-lg card-media" hide-xs flex="15" style="background-color:#fff">
+                        <img class="card-image" data-ng-src="{{getImageUrl(p)}}" />
                     </div>
                     <div layout="column" flex="23" flex-xs="100">
                         <div layout="column" class="card-item">
@@ -20,7 +20,7 @@
                         </div>
                         <div layout="column" class="card-item">
                             <span class="card-item-title" flex>Category</span>
-                            <span>{{ p.category.category_name }}</span>
+                            <span>{{ p.category.display_name }}</span>
                         </div>
                     </div>
                     <div layout="column" flex="25" flex-xs="100">
@@ -46,8 +46,8 @@
                 </div>
                 <div layout="row" flex>
                     <md-button href="/my-products/{{ p.slug + '-' + p.productID}}" class="md-raised md-primary">View</md-button>
-                    <md-button data-ng-if="p.show_online" data-ng-click="toggleProductStats(0, $index)">Hide</md-button>
-                    <md-button data-ng-if="!p.show_online" data-ng-click="toggleProductStats(1, $index)">Show</md-button>
+                    <md-button class="md-raised" data-ng-if="p.show_online" data-ng-click="toggleProductStats(0, $index)">Hide</md-button>
+                    <md-button class="md-raised" data-ng-if="!p.show_online" data-ng-click="toggleProductStats(1, $index)">Show</md-button>
                     <md-button class="md-warn" data-ng-click="toggleProductStats(-1, $index)">Delete</md-button>
                 </div>
             </div>
