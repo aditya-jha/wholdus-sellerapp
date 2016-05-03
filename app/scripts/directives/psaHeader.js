@@ -22,12 +22,12 @@
                     function loginState() {
                         if(LoginService.checkLoggedIn()) {
                             $scope.loggedIn = true;
-                            if($location.url().indexOf('sell') >= 0) {
+                            if($location.url().indexOf('distribute-on-wholdus') >= 0) {
                                 $location.url('/my-profile');
                             }
                         } else {
                             $scope.loggedIn = false;
-                            $location.url('/sell');
+                            $location.url('/distribute-on-wholdus');
                         }
                     }
                     loginState();
@@ -35,7 +35,7 @@
                     $scope.logout = function() {
                         LoginService.logout();
                         $scope.loggedIn = false;
-                        $location.url('/sell');
+                        $location.url('/distribute-on-wholdus');
                     };
 
                     $scope.showLoginPrompt = function(event) {
@@ -73,7 +73,7 @@
                         loginState();
                     });
                     listeners.push(locationChangeListener);
-                    
+
                     $scope.$on('$destroy', function() {
                         angular.forEach(listeners, function(value, key) {
                             if(value) value();

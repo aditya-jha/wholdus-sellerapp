@@ -14,7 +14,7 @@ sellerapp.config([
     'localStorageServiceProvider',
     function($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider, localStorageServiceProvider) {
 
-        $routeProvider.when('/sell', {
+        $routeProvider.when('/distribute-on-wholdus', {
             templateUrl: "views/sellerSignup.html",
             controller: "RegistrationController"
         }).when('/my-profile', {
@@ -36,7 +36,7 @@ sellerapp.config([
         });
 
         $routeProvider.otherwise('/my-profile');
-        
+
         $locationProvider.html5Mode(true);
         $mdThemingProvider.theme('default')
                         .primaryPalette('deep-purple')
