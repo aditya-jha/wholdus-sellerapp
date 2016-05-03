@@ -44,8 +44,8 @@
                         </div>
                     </div>
                 </div>
-                <div layout="row" flex>
-                    <md-button href="/my-products/{{ p.slug + '-' + p.productID}}" class="md-raised md-primary">View</md-button>
+                <div layout="row">
+                    <md-button data-ng-href="/my-products/{{ p.slug + '-' + p.productID}}" class="md-raised md-primary">View</md-button>
                     <md-button class="md-raised" data-ng-if="p.show_online" data-ng-click="toggleProductStats(0, $index)">Hide</md-button>
                     <md-button class="md-raised" data-ng-if="!p.show_online" data-ng-click="toggleProductStats(1, $index)">Show</md-button>
                     <md-button class="md-warn" data-ng-click="toggleProductStats(-1, $index)">Delete</md-button>
