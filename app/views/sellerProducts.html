@@ -1,12 +1,12 @@
 <div class="container" layout="row" flex ng-cloak>
     <div layout="row" psa-sidenav></div>
     <md-content class="md-padding" flex>
-        <div layout="column" layout-fill ng-cloak>
+        <div layout="column" ng-cloak>
             <div layout="row" data-ng-if="pageSettings.noProducts" layout-align="center center" flex>
                 <h1 class="md-display-3">{{ pageSettings.noProductsMessage }}</h1>
             </div>
-            <div data-ng-if="products && products.length" layout="column" flex md-whiteframe="4dp" class="product-card" md-padding data-ng-repeat="p in products">
-                <div layout="row" layout-xs="column" flex>
+            <div data-ng-if="products && products.length" layout="column" md-whiteframe="4dp" class="product-card" md-padding data-ng-repeat="p in products">
+                <div layout="row" layout-xs="column">
                     <div layout="column" class="md-media-lg card-media" hide-xs flex="15" style="background-color:#fff">
                         <img class="card-image" data-ng-src="{{getImageUrl(p)}}" />
                     </div>
