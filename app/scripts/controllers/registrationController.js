@@ -12,6 +12,7 @@
         'ngProgressBarService',
         function($scope, $rootScope, $location, $log, ConstantKeyValueService, APIService, ToastService, UtilService, ngProgressBarService) {
 
+            var newSeller;
             $scope.tabs = {
                 selectedIndex: 0,
                 items: ConstantKeyValueService.getSellerSignupFormItems(),
@@ -21,13 +22,20 @@
             $rootScope.$broadcast('hideHam');
 
             function postNewSeller() {
+                if(newSeller) {
+                    return;
+                }
+
                 var data = UtilService.formatSellerDataToPost($scope.tabs.items);
-                var newSeller = APIService.apiCall("POST", APIService.getAPIUrl("sellers"), data);
+                newSeller = APIService.apiCall("POST", APIService.getAPIUrl("sellers"), data);
                 newSeller.then(function(response) {
+                    newSeller = null;
                     $scope.tabs.items = ConstantKeyValueService.getSellerSignupFormItems();
                     $rootScope.$broadcast('endProgressbar');
                     ToastService.showSimpleToast(ConstantKeyValueService.sellerSuccessSignup, 5000);
+                    
                 }, function(error) {
+                    newSeller = null;
                     $rootScope.$broadcast('endProgressbar');
                     ToastService.showSimpleToast(error, 3000);
                 });

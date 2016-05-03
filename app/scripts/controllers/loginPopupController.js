@@ -7,7 +7,9 @@
         'ToastService',
         'ngProgressBarService',
         '$rootScope',
-        function($scope, $mdDialog, LoginService, ToastService, ngProgressBarService, $rootScope) {
+        '$log',
+        function($scope, $mdDialog, LoginService, ToastService, ngProgressBarService, $rootScope, $log) {
+
             $scope.hide = function() {
                 $mdDialog.hide();
             };
@@ -16,13 +18,15 @@
             };
             $scope.login = function() {
                 if($scope.email && $scope.password) {
+
                     $rootScope.$broadcast('showProgressbar');
-                    LoginService.login($scope.email, $scope.password).then(function(response) {
-                        $scope.$broadcast('endProgressbar');
+                    LoginService.login($scope.email, $scope.password)
+                    .then(function(response) {
+                        $rootScope.$broadcast('endProgressbar');
                         ToastService.showSimpleToast("welcome", 2000);
                         $mdDialog.hide(true);
                     }, function(error) {
-                        $scope.$broadcast('endProgressbar');
+                        $rootScope.$broadcast('endProgressbar');
                         ToastService.showSimpleToast(error.error, 2000);
                     });
                 } else {

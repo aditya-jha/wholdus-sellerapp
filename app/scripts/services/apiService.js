@@ -16,7 +16,7 @@
                 return str.join("&");
             }
 
-            factory.apiCall = function(method, url, data, params, headers, cache, transformRequest) {
+            factory.apiCall = function(method, url, data, params, headers, cache, transformRequest, timeout) {
                 var deferred = $q.defer();
 
                 if(!transformRequest) {
@@ -34,7 +34,8 @@
                     headers: headers ? {'Content-Type': 'application/x-www-form-urlencoded'} : undefined,
                     transformRequest: transformRequest ? transform : transformRequest,
                     data: data,
-                    cache: cache ? cache : false
+                    cache: cache ? cache : false,
+                    timeout: timeout
                 });
                 apiPromise.then(function(response) {
                     if(response.data.statusCode === '2XX') {
