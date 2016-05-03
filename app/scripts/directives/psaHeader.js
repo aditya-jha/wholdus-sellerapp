@@ -69,6 +69,11 @@
                     });
                     listeners.push(hideHamListener);
 
+                    var locationChangeListener = $rootScope.$on('$locationChangeSuccess', function(event, data) {
+                        loginState();
+                    });
+                    listeners.push(locationChangeListener);
+                    
                     $scope.$on('$destroy', function() {
                         angular.forEach(listeners, function(value, key) {
                             if(value) value();

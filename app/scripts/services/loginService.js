@@ -18,8 +18,6 @@
                 ConstantKeyValueService.token = response.token;
 
                 localStorageService.set(ConstantKeyValueService.accessTokenKey, response.token);
-                //remove this
-                localStorageService.set('seller', factory.seller);
             }
 
             factory.checkLoggedIn = function() {
@@ -27,7 +25,6 @@
                 if(token) {
                     factory.loginStatus = true;
                     ConstantKeyValueService.token = token;
-                    factory.seller = localStorageService.get('seller');
                 } else {
                     factory.loginStatus = false;
                 }
