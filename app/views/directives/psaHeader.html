@@ -8,14 +8,14 @@
                <a href="/">Wholdus</a>
          </h1>
          <span flex></span>
-         <div layout-sm="row" class="md-padding header-content-right" layout-align="center center" hide-xs show-gt-xs>
-             <md-button data-ng-if="!loggedIn" class="accent-color" ng-click="showLoginPrompt($event)"  >
+         <div layout-sm="row" class="md-padding header-content-right" layout-align="center center">
+             <md-button data-ng-if="!loggedIn" class="md-raised md-warn" ng-click="showLoginPrompt($event)"  >
                  login
              </md-button>
-             <md-button data-ng-if="loggedIn" class="accent-color" ng-click="logout($event)"  >
+             <md-button data-ng-if="loggedIn" class="md-raised md-warn" ng-click="logout($event)"  >
                  logout
              </md-button>
-             <md-button aria-label="customer_support">
+             <md-button aria-label="customer_support" hide-xs show-gt-xs>
                 <span>+91-7895161705</span>
              </md-button>
          </div>

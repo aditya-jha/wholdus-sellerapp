@@ -49,11 +49,13 @@
                             fullscreen: useFullScreen
                         })
                         .then(function(status) {
+                            //hide callback
                             if(status) {
                                 $scope.loggedIn = true;
                                 $location.url('/my-profile');
                             }
                         }, function() {
+                            // cancel callback
                             loginState();
                         });
                     };
