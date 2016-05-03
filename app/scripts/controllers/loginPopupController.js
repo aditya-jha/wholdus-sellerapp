@@ -10,6 +10,8 @@
         '$log',
         function($scope, $mdDialog, LoginService, ToastService, ngProgressBarService, $rootScope, $log) {
 
+            var loginApiCall;
+
             $scope.hide = function() {
                 $mdDialog.hide();
             };
@@ -18,14 +20,19 @@
             };
             $scope.login = function() {
                 if($scope.email && $scope.password) {
-
+                    if(loginApiCall) {
+                        return;
+                    }
+                    loginApiCall = true;
                     $rootScope.$broadcast('showProgressbar');
                     LoginService.login($scope.email, $scope.password)
                     .then(function(response) {
+                        loginApiCall = false;
                         $rootScope.$broadcast('endProgressbar');
                         ToastService.showSimpleToast("welcome", 2000);
                         $mdDialog.hide(true);
                     }, function(error) {
+                        loginApiCall = false;
                         $rootScope.$broadcast('endProgressbar');
                         ToastService.showSimpleToast(error.error, 2000);
                     });
