@@ -39,6 +39,7 @@
                         dob_on_pan: data[1].formItems.dob_on_pan.value,
                     },
                     bank_details: {
+                        bank_detailsID: data[3].bank_detailsID,
                         account_holders_name: data[3].formItems.account_holders_name.value,
                         account_number: data[3].formItems.account_number.value,
                         bank_name: data[3].formItems.bank_name.value,

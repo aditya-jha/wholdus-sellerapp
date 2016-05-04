@@ -27,7 +27,7 @@
                     $scope.tabs.items[0].formItems.email.value = params.email;
                 }
                 if(params && params.mobile_number) {
-                    $scope.tabs.items[0].formItems.mobile_number.value = params.email;
+                    $scope.tabs.items[0].formItems.mobile_number.value = parseInt(params.mobile_number);
                 }
                 if(params && params.company_name) {
                     $scope.tabs.items[1].formItems.company_name.value = params.company_name;
