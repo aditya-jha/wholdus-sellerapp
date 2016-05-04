@@ -21,6 +21,20 @@
 
             $rootScope.$broadcast('hideHam');
 
+            function readFromUrl() {
+                var params = $location.search();
+                if(params && params.email) {
+                    $scope.tabs.items[0].formItems.email.value = params.email;
+                }
+                if(params && params.mobile_number) {
+                    $scope.tabs.items[0].formItems.mobile_number.value = params.email;
+                }
+                if(params && params.company_name) {
+                    $scope.tabs.items[1].formItems.company_name.value = params.company_name;
+                }
+            }
+            readFromUrl();
+
             function postNewSeller() {
                 if(newSeller) {
                     return;
@@ -33,7 +47,7 @@
                     $scope.tabs.items = ConstantKeyValueService.getSellerSignupFormItems();
                     $rootScope.$broadcast('endProgressbar');
                     ToastService.showSimpleToast(ConstantKeyValueService.sellerSuccessSignup, 5000);
-                    
+
                 }, function(error) {
                     newSeller = null;
                     $rootScope.$broadcast('endProgressbar');

@@ -244,6 +244,64 @@ md-list-item > a {
 .product-card .card-item {
     margin-left: 1em;
 }
+
+.register-top-container {
+    margin-bottom: 1em;
+    /*background-color: rgb(115, 76, 202);
+    color: #fff;*/
+}
+
+.register-intro-container {
+    background-color: #673AB7;
+    color: #fff;
+    text-align: center;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+.register-title {
+    font-family: 'Comfortaa';
+    font-size:1em;
+    text-align: center;
+}
+.register-intro-container md-icon{
+    width: 70px;
+    height: 70px;
+}
+/*.register-top-container label, input {
+    color: #fff;
+}*/
+.register-top-container > span {
+    padding: 0.5em 0em;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: 'Confortaa';
+}
+.top-container {
+    margin: 0 auto;
+}
+.register-form-container md-input-container{
+    margin: 0px;
+}
+.video {
+
+}
+.video iframe {
+    margin: 0 auto;
+    width: 500px;
+    height: 290px;
+}
+
+@media screen and (max-width:600px) {
+    .register-intro-container {
+        margin-right: 0em;
+    }
+    .video iframe {
+        margin: 0 auto;
+        width: 99%;
+        height: 290px;
+    }
+}
 /** ngProgress loader css*/
 #ngProgress {
     margin: 0;

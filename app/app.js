@@ -15,6 +15,9 @@ sellerapp.config([
     function($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider, localStorageServiceProvider) {
 
         $routeProvider.when('/distribute-on-wholdus', {
+            templateUrl: 'views/distributeOnWholdus.html',
+            controller: 'DistributeOnWholdusController',
+        }).when('/register', {
             templateUrl: "views/sellerSignup.html",
             controller: "RegistrationController"
         }).when('/my-profile', {

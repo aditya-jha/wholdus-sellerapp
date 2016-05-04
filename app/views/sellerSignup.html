@@ -1,10 +1,10 @@
-<md-content>
+<md-content flex>
     <div layout="row" class="filler-container" layout-align="center start">
         <h2 class="md-title">Register And Start Distribution</h2>
     </div>
-    <div layout="row" layout-align="center center">
+    <div layout="row" layout-align="center center" flex>
         <md-tabs md-dynamic-height md-border-bottom md-swipe-content md-selected="tabs.selectedIndex" md-stretch-tabs="auto" class="md-primary md-hue-2" flex>
-            <md-tab data-ng-repeat="item in tabs.items">
+            <md-tab data-ng-repeat="item in tabs.items" flex>
                 <md-tab-label>{{ item.label }}</md-tab-label>
                 <md-tab-body>
                     <div md-whiteframe="4dp" class="md-padding" style="margin:0 auto; max-width:600px;" layout="column" layout-align="center center">

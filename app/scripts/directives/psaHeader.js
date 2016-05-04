@@ -22,11 +22,14 @@
                     function loginState() {
                         if(LoginService.checkLoggedIn()) {
                             $scope.loggedIn = true;
-                            if($location.url().indexOf('distribute-on-wholdus') >= 0) {
+                            if($location.url().indexOf('distribute-on-wholdus') >= 0 || $location.url().indexOf('register') >= 0) {
                                 $location.url('/my-profile');
                             }
                         } else {
                             $scope.loggedIn = false;
+                            if($location.url().indexOf('register') >= 0) {
+                                return;
+                            }
                             $location.url('/distribute-on-wholdus');
                         }
                     }

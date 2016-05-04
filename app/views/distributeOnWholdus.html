@@ -1,0 +1,57 @@
+<md-content flex>
+    <div layout="row" layout-xs="column" layout-padding="">
+        <div flex layout="column" md-whiteframe="4dp" class="register-intro-container" layout-padding>
+            <span>Step 1</span>
+            <md-button>
+                <md-icon md-svg-icon="images/Form2.svg"></md-icon>
+            </md-button>
+            <span>Fill the registration form</span>
+            <span>You can go to the main form by filling details below</span>
+        </div>
+        <div layout="column" flex md-whiteframe="4dp" class="register-intro-container" layout-padding>
+            <span>Step 2</span>
+            <md-button>
+                <md-icon md-svg-icon="images/image-cloud.svg"></md-icon>
+            </md-button>
+            <span>Upload your catalog</span>
+            <span>Our team will help you throughout the process</span>
+        </div>
+        <div layout="column" flex md-whiteframe="4dp" class="register-intro-container" style="margin-right: 0em;" layout-padding>
+            <span>Step 3</span>
+            <md-button>
+                <md-icon md-svg-icon="images/truck.svg"></md-icon>
+            </md-button>
+            <span>Wait for the demand</span>
+            <span>We handle everything from logistics to payment</span>
+        </div>
+    </div>
+
+    <div layout="row" layout-xs="column" layout-margin class="top-container"  layout-align="center center">
+        <div layout="row" md-whiteframe="4dp" class="register-form-container" layout-align="center center">
+            <div layout="column" layout-padding>
+                <span class="register-title">Register</span>
+                <div layout="column">
+                    <md-input-container>
+                        <label>Mobile Number</label>
+                        <input type="number" data-ng-model="mobile_number" required/>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Email</label>
+                        <input type="email" data-ng-model="email" required/>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Company Name</label>
+                        <input type="text" data-ng-model="name" required/>
+                    </md-input-container>
+                    <div layout="row" flex="none">
+                        <md-button class="md-raised md-warn" data-ng-click="register()">Register</md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="row" flex-xs='100' class="video" layout-padding>
+            <iframe src="https://www.youtube.com/embed/n_YHYyQiCak" frameborder="0" allowfullscreen class="md-card-image"></iframe>
+        </div>
+    </div>
+
+</md-content>
