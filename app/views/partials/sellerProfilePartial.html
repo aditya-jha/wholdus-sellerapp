@@ -5,7 +5,7 @@
             <span class="md-title">{{ seller.personal_details.label }}</span>
             <md-input-container data-ng-repeat="item in seller.personal_details.formItems">
                 <label>{{ item.label }}</label>
-                <input type="{{ item.type }}" ng-model="item.value" ng-required="item.required">
+                <input type="{{ item.type }}" data-ng-disabled="item.type=='email'" data-ng-model="item.value" data-ng-required="item.required">
             </md-input-container>
         </div>
     </div>
@@ -14,7 +14,7 @@
             <span class="md-title">{{ seller.pickup_address.label }}</span>
             <md-input-container data-ng-repeat="item in seller.pickup_address.formItems">
                 <label>{{ item.label }}</label>
-                <input type="{{ item.type }}" ng-model="item.value" ng-required="item.required">
+                <input type="{{ item.type }}" data-ng-model="item.value" data-ng-required="item.required">
             </md-input-container>
         </div>
     </div>
@@ -27,7 +27,7 @@
             <span class="md-title">{{ seller.bank_details.label }}</span>
             <md-input-container data-ng-repeat="item in seller.bank_details.formItems">
                 <label>{{ item.label }}</label>
-                <input type="{{ item.type }}" ng-model="item.value" ng-required="item.required">
+                <input type="{{ item.type }}" data-ng-model="item.value" data-ng-required="item.required">
             </md-input-container>
         </div>
     </div>
@@ -36,7 +36,7 @@
             <span class="md-title">{{ seller.company_details.label }}</span>
             <md-input-container data-ng-repeat="item in seller.company_details.formItems">
                 <label>{{ item.label }}</label>
-                <input type="{{ item.type }}" ng-model="item.value" ng-required="item.required">
+                <input type="{{ item.type }}" data-ng-model="item.value" data-ng-required="item.required">
             </md-input-container>
         </div>
     </div>
