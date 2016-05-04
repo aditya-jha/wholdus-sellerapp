@@ -35,7 +35,8 @@ var jsCustom = [
     'app/scripts/controllers/orderController.js',
     'app/scripts/controllers/productController.js',
     'app/scripts/controllers/loginPopupController.js',
-    'app/scripts/controllers/paymentController.js'
+    'app/scripts/controllers/paymentController.js',
+    'app/scripts/controllers/distributeOnWholdusController.js'
 ];
 
 var stylesheets = [
