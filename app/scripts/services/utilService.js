@@ -71,7 +71,7 @@
                 obj[0].formItems.mobile_number.value = parseInt(values.mobile_number);
 
                 obj[1].formItems.company_name.value = values.company_name;
-                obj[1].formItems.company_profile.value = values.details.company_profile;
+                obj[1].formItems.company_profile.value = values.company_profile;
                 obj[1].formItems.cst.value = values.details.cst;
                 obj[1].formItems.dob_on_pan.value = new Date(values.details.dob_on_pan);
                 obj[1].formItems.pan.value = values.details.pan;
