@@ -280,6 +280,10 @@ md-list-item > a {
 .top-container {
     margin: 0 auto;
 }
+
+.register-form-container {
+    min-width: 350px;
+}
 .register-form-container md-input-container{
     margin: 0px;
 }
@@ -295,6 +299,10 @@ md-list-item > a {
 @media screen and (max-width:600px) {
     .register-intro-container {
         margin-right: 0em;
+    }
+    .register-form-container {
+        min-width: 300px;
+        max-width: 320px;
     }
     .video iframe {
         margin: 0 auto;
