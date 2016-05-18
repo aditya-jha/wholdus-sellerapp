@@ -97,6 +97,28 @@
                 $location.url(to);
             };
 
+            factory.getPageNumber = function() {
+                var search = $location.search();
+                if(search.page) {
+                    return search.page;
+                } else {
+                    return 1;
+                }
+            };
+
+            factory.isMobileRequest = function() {
+                var userAgent = $window.navigator.userAgent;
+                if(userAgent.match(/mobile/i)) {
+                    return true;
+                }
+                return false;
+            };
+
+            factory.setPaginationParams = function(obj, page, items) {
+                obj.page_number = page;
+                obj.items_per_page = items;
+            };
+            
             return factory;
         }
     ]);
