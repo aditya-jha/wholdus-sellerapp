@@ -18,7 +18,7 @@
 
                 if($scope.email && $scope.mobile_number && $scope.name) {
                     var mobStr=$scope.mobile_number.toString();
-                    var mobNum=Number(mobStr.substr(MobStr.length-10,10));             
+                    var mobNum=Number(mobStr.substr(mobStr.length-10,10));             
                     var url = "/register?email="+$scope.email+"&mobile_number="+
                     mobNum+"&company_name="+$scope.name;
                     $location.url(url);

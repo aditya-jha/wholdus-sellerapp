@@ -37,9 +37,9 @@
                         <input  type="number" data-ng-model="mobile_number" 
                         name="mobNum" ng-pattern="formValidation.mobileNumValidation" required=""/>
                       
-                             <div ng-messages="sellerRegisterForm.mobNum.$error" ng-if="sellerRegisterForm.mobNum.$dirty" role="alert" ng-messages-multiple>
+                             <div ng-messages="sellerRegisterForm.mobNum.$error" role="alert" ng-if="sellerRegisterForm.mobNum.$dirty || sellerRegisterForm.$submitted" ng-messages-multiple>
                                 <div ng-message="required" class="formError">This is required.</div>
-                                <div ng-message-exp="['pattern']" class="formError">
+                                <div ng-message="pattern" class="formError">
                                     {{formValidation.mobileErrorMessage}}
                                 </div>
                              </div>   
@@ -49,7 +49,7 @@
                         <input  data-ng-model="email" name="email"  ng-pattern="formValidation.emailValidation" 
                          required="" />
                         
-                          <div ng-messages="sellerRegisterForm.email.$error" ng-if="sellerRegisterForm.email.$dirty"
+                          <div ng-messages="sellerRegisterForm.email.$error" ng-if="sellerRegisterForm.email.$dirty || sellerRegisterForm.$submitted"
                           role="alert" ng-messages-multiple>
                                 <div ng-message="required" class="formError">This is required.</div>
                                 <div ng-message="pattern" class="formError">{{formValidation.emailErrorMessage}}</div>
@@ -59,7 +59,7 @@
                     <md-input-container>
                         <label>Company Name</label>
                         <input type="text" data-ng-model="name" name="companyName" required="" />
-                        <div ng-messages="sellerRegisterForm.companyName.$error" ng-if="sellerRegisterForm.companyName.$dirty" role="alert">
+                        <div ng-messages="sellerRegisterForm.companyName.$error" ng-if="sellerRegisterForm.companyName.$dirty || sellerRegisterForm.$submitted" role="alert">
                                 <div ng-message="required" class="formError">This is required.</div>
                         </div>
                     </md-input-container>
