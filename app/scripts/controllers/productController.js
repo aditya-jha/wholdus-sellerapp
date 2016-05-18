@@ -14,7 +14,10 @@
             $scope.pageSettings = {
                 productDetailPage: false,
                 noProductsMessage: 'Upload products and start distribution',
-                noProducts: false
+                noProducts: false,
+                enablePagination: false,
+                page: UtilService.getPageNumber(),
+                itemsPerPage: 20,
             };
 
             $scope.getImageUrl = function(p, index) {
@@ -22,7 +25,9 @@
                      p = $scope.products;
                 }
                 var imagePath = p.image.image_path;
-                imagePath = imagePath.substr(7);
+                if(imagePath.indexOf('static/') > -1) {
+                    imagePath = imagePath.substr(7);
+                }
                 var url = ConstantKeyValueService.apiBaseUrl + imagePath + '200x200/' + p.image.image_name + '-1.jpg';
                 return url;
             };
@@ -33,7 +38,7 @@
                         productID: $scope.productID
                     });
                 } else {
-                    fetchProducts();
+                    fetchProducts({});
                 }
             }
 
@@ -57,6 +62,9 @@
 
             function fetchProducts(params) {
                 $rootScope.$broadcast('showProgressbar');
+
+                UtilService.setPaginationParams(params, $scope.pageSettings.page, $scope.pageSettings.itemsPerPage);
+
                 var productApiCall = APIService.apiCall("GET", APIService.getAPIUrl("products"), null, params);
                 productApiCall.then(function(response) {
                     if($scope.pageSettings.productDetailPage) {
@@ -71,6 +79,13 @@
                         } else {
                             $scope.pageSettings.noProducts = false;
                             $scope.products = response.products;
+                        }
+                        if(response.total_pages > 1) {
+                            $scope.pageSettings.enablePagination = true;
+                            $rootScope.$broadcast('setPage', {
+                                page: $scope.pageSettings.page,
+                                totalPages: Math.ceil(response.total_products/$scope.pageSettings.itemsPerPage)
+                            });
                         }
                     }
                     $rootScope.$broadcast('endProgressbar');

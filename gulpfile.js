@@ -30,6 +30,7 @@ var jsCustom = [
     'app/scripts/services/orderService.js',
     'app/scripts/directives/psaHeader.js',
     'app/scripts/directives/psaSidenav.js',
+    'app/scripts/directives/wdPagination.js',
     'app/scripts/controllers/registrationController.js',
     'app/scripts/controllers/profileController.js',
     'app/scripts/controllers/orderController.js',
