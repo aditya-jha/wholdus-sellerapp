@@ -9,20 +9,18 @@
         
         function($scope, $log, ToastService, APIService, $location, FormValidationService) {
 
-           // $scope.emailValidation=FormValidationService.emailValidation();
-           // $scope.mobileNumValidation=FormValidationService.mobileNumValidation();
+           
 
            
-                $scope.formValidation=FormValidationService.formValidation();
+                $scope.formValidation=FormValidationService;
            
                 $scope.register = function() {
 
                 if($scope.email && $scope.mobile_number && $scope.name) {
-                    var MobStr=$scope.mobile_number.toString();
-                    var MobNum=Number(MobStr.substr(MobStr.length-10,10)); 
-                    $scope.mobile_number=MobNum;            
+                    var mobStr=$scope.mobile_number.toString();
+                    var mobNum=Number(mobStr.substr(MobStr.length-10,10));             
                     var url = "/register?email="+$scope.email+"&mobile_number="+
-                    $scope.mobile_number+"&company_name="+$scope.name;
+                    mobNum+"&company_name="+$scope.name;
                     $location.url(url);
                     // var data = {
                     //     email: $scope.email,
@@ -34,7 +32,7 @@
                     //
                     // }, function(error) {});
                 } else {
-                    //ToastService.showSimpleToast("Please fill required details", 2000);
+                    ToastService.showSimpleToast("Please fill required details", 2000);
                 }
             };
                 // 
