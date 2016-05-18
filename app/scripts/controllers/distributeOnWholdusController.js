@@ -5,7 +5,10 @@
         'ToastService',
         'APIService',
         '$location',
+        
         function($scope, $log, ToastService, APIService, $location) {
+
+
 
             $scope.register = function() {
                 if($scope.email && $scope.mobile_number && $scope.name) {
@@ -21,7 +24,7 @@
                     //
                     // }, function(error) {});
                 } else {
-                    ToastService.showSimpleToast("Please fill required details", 2000);
+                    //ToastService.showSimpleToast("Please fill required details", 2000);
                 }
             };
         }
