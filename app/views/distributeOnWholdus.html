@@ -1,3 +1,5 @@
+{{formValidation.emailValidation}}
+{{formValidation.mobileNumValidation}}
 <md-content flex>
     <div layout="row" layout-xs="column" layout-padding="">
         <div flex layout="column" md-whiteframe="4dp" class="register-intro-container" layout-padding>
@@ -25,7 +27,6 @@
             <span>We handle everything from logistics to payment</span>
         </div>
     </div>
-
     <div layout="row" layout-xs="column" layout-margin class="top-container"  layout-align="center center">
         <div layout="row" md-whiteframe="4dp" class="register-form-container" layout-align="center center">
             <div layout="column" layout-padding flex>
@@ -36,20 +37,23 @@
                     <md-input-container>
                         <label>Mobile Number</label>
                         <input  type="number" data-ng-model="mobile_number" 
-                        name="mobNum" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" required=""/>
+                        name="mobNum" ng-pattern="formValidation.mobileNumValidation" required=""/>
+                      
                              <div ng-messages="sellerRegisterForm.mobNum.$error" role="alert">
                                 <div ng-message="required" class="formError">This is required.</div>
                                 <div ng-message-exp="['pattern']" class="formError">
-                                    Enter a valid mobile number
+                                    {{formValidation.mobileErrorMessage}}
                                 </div>
                              </div>   
                     </md-input-container>
                     <md-input-container>
                         <label>Email</label>
-                        <input  data-ng-model="email" name="email" pattern="^.+@.+\..+$" required="" />
+                        <input  data-ng-model="email" name="email"  ng-pattern="formValidation.emailValidation" required="" />
+                        
                           <div ng-messages="sellerRegisterForm.email.$error">
                                 <div ng-message="required" class="formError">This is required.</div>
-                                <div ng-message="pattern" class="formError">Enter a valid email address.</div>
+                                <div ng-message="pattern" class="formError">{{formValidation.emailErrorMessage}}</div>
+                               
                           </div>
                     </md-input-container>
                     <md-input-container>

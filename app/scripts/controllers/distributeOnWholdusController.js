@@ -5,12 +5,17 @@
         'ToastService',
         'APIService',
         '$location',
+        'FormValidationService',
         
-        function($scope, $log, ToastService, APIService, $location) {
+        function($scope, $log, ToastService, APIService, $location, FormValidationService) {
+
+           // $scope.emailValidation=FormValidationService.emailValidation();
+           // $scope.mobileNumValidation=FormValidationService.mobileNumValidation();
 
            
-             
-            $scope.register = function() {
+                $scope.formValidation=FormValidationService.formValidation();
+           
+                $scope.register = function() {
 
                 if($scope.email && $scope.mobile_number && $scope.name) {
                     var MobStr=$scope.mobile_number.toString();
@@ -32,6 +37,7 @@
                     //ToastService.showSimpleToast("Please fill required details", 2000);
                 }
             };
+                // 
         }
     ]);
 })();
