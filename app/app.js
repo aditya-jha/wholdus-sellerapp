@@ -43,7 +43,7 @@ sellerapp.config([
         $locationProvider.html5Mode(true);
         $mdThemingProvider.theme('default')
                         .primaryPalette('deep-purple')
-                        .accentPalette('orange');
+                        .accentPalette('deep-orange');
 
         //$mdIconProvider.defaultIconSet('./images/icons.svg', 128);
 
