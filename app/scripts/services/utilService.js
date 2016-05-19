@@ -5,7 +5,8 @@
         '$rootScope',
         '$log',
         '$location',
-        function($rootScope, $log, $location) {
+        '$window',
+        function($rootScope, $log, $location, $window) {
             var factory = {};
 
             factory.formatSellerDataToPost = function(data) {
@@ -118,7 +119,7 @@
                 obj.page_number = page;
                 obj.items_per_page = items;
             };
-            
+
             return factory;
         }
     ]);

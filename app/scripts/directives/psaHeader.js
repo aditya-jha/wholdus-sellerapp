@@ -67,11 +67,6 @@
                         $rootScope.$broadcast('toggleSidenav');
                     };
 
-                    var hideHamListener = $rootScope.$on('hideHam', function(event, data) {
-                        $scope.hideHam = true;
-                    });
-                    listeners.push(hideHamListener);
-
                     var locationChangeListener = $rootScope.$on('$locationChangeSuccess', function(event, data) {
                         loginState();
                     });
