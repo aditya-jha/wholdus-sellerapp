@@ -36,17 +36,17 @@
                     <md-input-container>
                         <label>Mobile Number</label>
                         <input  type="number" data-ng-model="mobile_number" 
-                        name="mobNum" pattern="[7-9]{1}[0-9]{9}" maxlength="10" minlenght="10" required=""/>
+                        name="mobNum" pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" required=""/>
                              <div ng-messages="sellerRegisterForm.mobNum.$error" role="alert">
                                 <div ng-message="required" class="formError">This is required.</div>
                                 <div ng-message-exp="['pattern']" class="formError">
-                                    Enter Valid 10 digit Mobile Number
+                                    Enter a valid mobile number
                                 </div>
                              </div>   
                     </md-input-container>
                     <md-input-container>
                         <label>Email</label>
-                        <input  data-ng-model="email" name="email" ng-pattern="/^.+@.+\..+$/" required="" />
+                        <input  data-ng-model="email" name="email" pattern="^.+@.+\..+$" required="" />
                           <div ng-messages="sellerRegisterForm.email.$error">
                                 <div ng-message="required" class="formError">This is required.</div>
                                 <div ng-message="pattern" class="formError">Enter a valid email address.</div>
@@ -67,7 +67,7 @@
                 </form>
             </div>
         </div>
-        <div layout="row" flex-xs='100' class="video" layout-padding>
+        <div layout="row" flex-xs='100' flex-sm="50" class="video" layout-padding>
             <iframe src="https://www.youtube.com/embed/n_YHYyQiCak" frameborder="0" allowfullscreen class="md-card-image"></iframe>
         </div>
     </div>
