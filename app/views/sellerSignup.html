@@ -1,28 +1,44 @@
 <md-content flex>
+
     <div layout="row" class="filler-container" layout-align="center start">
         <h2 class="md-title">Register And Start Distribution</h2>
     </div>
+    
     <div layout="row" layout-align="center center" flex>
         <md-tabs md-dynamic-height md-border-bottom md-swipe-content md-selected="tabs.selectedIndex" md-stretch-tabs="auto" class="md-primary md-hue-2" flex>
             <md-tab data-ng-repeat="item in tabs.items" flex>
-                <md-tab-label>{{ item.label }}</md-tab-label>
+                <md-tab-label >{{ item.label }}</md-tab-label>
                 <md-tab-body>
-                    <div md-whiteframe="4dp" class="md-padding" style="margin:0 auto; max-width:600px;" layout="column" layout-align="center center">
-                        <span flex>{{item.label}}</span>
+                    <div md-whiteframe="4dp" class="md-padding seller-signup-container" layout="column" layout-align="center center">
+                     
+                       
+                <div flex style="margin-bottom:10px;">{{item.label}}</div>
+                    <form name="sellerDetails" novalidate="" autocomplete="off">
                         <md-input-container layout-fill data-ng-repeat="i in item.formItems">
+                        <ng-form name="sfIn">
                             <label>{{ i.label }}<span data-ng-if="i.required">*</span></label>
-                            <input type="{{ i.type }}" ng-model="i.value" ng-required="i.required">
+                            <input type="{{ i.type }}" name="tb" ng-model="i.value" ng-required="i.required" ng-pattern="i.pattern">
+                             <div ng-messages="sfIn.tb.$error" role="alert" ng-if="sfIn.tb.$dirty || sellerDetails.$submitted">
+                                <div ng-message="required" class="formError">This is required.</div>
+                                <div ng-message="pattern" class="formError">
+                                    {{i.error}}
+                                </div>
+                            </div>
+                        </ng-form>    
                         </md-input-container>
+                     
                         <div layout="row" layout-align="space-between start">
                             <md-button ng-disabled="tabs.selectedIndex==0" class="md-raised" data-ng-click="back()">back</md-button>
-                            <md-button class="md-raised md-warn" aria-label="Next" data-ng-click="next()">
+                            <md-button type="submit" class="md-raised md-warn"  aria-label="Next" data-ng-click="next()">
                                 <span data-ng-if="tabs.selectedIndex == tabs.items.length-1">Start Distribution</span>
-                                <span data-ng-if="tabs.selectedIndex != tabs.items.length-1">Next</span>
+                                <span  type="submit" data-ng-if="tabs.selectedIndex != tabs.items.length-1">Next</span>
                             </md-button>
                         </div>
-                    </div>
-                </md-tab-ody>
+                    </form>
+                </div>
+                </md-tab-body>
             </md-tab>
         </md-tabs>
     </div>
+   
 </md-content>
