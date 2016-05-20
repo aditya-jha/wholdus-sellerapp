@@ -7,7 +7,9 @@
             var validations={mobileNumValidation:(/^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/).toString().split('/').join(''),
                                 emailValidation : (/^.+@.+\..+$/).toString().split('/').join(''),
                                 mobileErrorMessage:'Enter a valid mobile number.',
-                                emailErrorMessage:'Enter a valid email address.'};
+                                emailErrorMessage:'Enter a valid email address.',
+                                pinCodeValidation:(/^([0-9]{6})$/).toString().split('/').join(''),
+                                pinErrorMessage:'Enter a valid pin number'};
             
             return validations;
         

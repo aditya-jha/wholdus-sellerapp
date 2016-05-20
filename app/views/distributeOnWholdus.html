@@ -27,6 +27,7 @@
     </div>
     <div layout="row" layout-xs="column" layout-margin class="top-container"  layout-align="center center">
         <div layout="row" md-whiteframe="4dp" class="register-form-container" layout-align="center center">
+        
             <div layout="column" layout-padding flex>
                 <span class="register-title">Register</span>
                 <form name="sellerRegisterForm" novalidate autocomplete="off">
@@ -35,14 +36,14 @@
                     <md-input-container>
                         <label>Mobile Number</label>
                         <input  type="number" data-ng-model="mobile_number" 
-                        name="mobNum" ng-pattern="formValidation.mobileNumValidation" required=""/>
+                                name="mobNum" ng-pattern="formValidation.mobileNumValidation" required=""/>
                       
-                             <div ng-messages="sellerRegisterForm.mobNum.$error" role="alert" ng-if="sellerRegisterForm.mobNum.$dirty || sellerRegisterForm.$submitted" ng-messages-multiple>
+                         <div ng-messages="sellerRegisterForm.mobNum.$error" role="alert" ng-if="sellerRegisterForm.mobNum.$dirty || sellerRegisterForm.$submitted" >
                                 <div ng-message="required" class="formError">This is required.</div>
                                 <div ng-message="pattern" class="formError">
                                     {{formValidation.mobileErrorMessage}}
                                 </div>
-                             </div>   
+                            </div>     
                     </md-input-container>
                     <md-input-container>
                         <label>Email</label>
@@ -50,7 +51,7 @@
                          required="" />
                         
                           <div ng-messages="sellerRegisterForm.email.$error" ng-if="sellerRegisterForm.email.$dirty || sellerRegisterForm.$submitted"
-                          role="alert" ng-messages-multiple>
+                          role="alert">
                                 <div ng-message="required" class="formError">This is required.</div>
                                 <div ng-message="pattern" class="formError">{{formValidation.emailErrorMessage}}</div>
                                
