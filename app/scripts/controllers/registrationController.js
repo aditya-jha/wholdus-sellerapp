@@ -55,62 +55,62 @@
                 });
             }
 
-            // function validForm() {
-            //     var invalid = false;
-            //     for(var i=0; i<$scope.tabs.items.length; i++) {
-            //         var item = $scope.tabs.items[i].formItems;
-            //         var keys = Object.keys(item);
-            //         for(var j=0; j<keys.length; j++) {
-            //             if(item[keys[j]].required && item[keys[j]].value === '') {
-            //                 return false;
-            //             }
-            //         }
-            //     }
-            //     return true;
-            // }
-
-            // $scope.next = function() {
-            //     if($scope.tabs.selectedIndex == $scope.tabs.items.length-1) {
-            //         if(!validForm()) {
-            //             ToastService.showSimpleToast("please fill required items", 2000);
-            //             return;
-            //         }
-            //         $rootScope.$broadcast('showProgressbar');
-            //         postNewSeller();
-            //     } else {
-            //         $scope.tabs.selectedIndex += 1;
-            //     }
-            // };
             function validForm() {
-
                 var invalid = false;
-                    var item = $scope.tabs.items[$scope.tabs.selectedIndex].formItems;
+                for(var i=0; i<$scope.tabs.items.length; i++) {
+                    var item = $scope.tabs.items[i].formItems;
                     var keys = Object.keys(item);
                     for(var j=0; j<keys.length; j++) {
-                        if((item[keys[j]].required && item[keys[j]].value == '') || 
-                            (item[keys[j]].$invalid && item[keys[j]].length >0)) {
+                        if(item[keys[j]].required && item[keys[j]].value === '') {
                             return false;
                         }
                     }
+                }
                 return true;
             }
 
             $scope.next = function() {
+                if($scope.tabs.selectedIndex == $scope.tabs.items.length-1) {
                     if(!validForm()) {
                         ToastService.showSimpleToast("please fill required items", 2000);
                         return;
                     }
-                    else {
-                        if($scope.tabs.selectedIndex == $scope.tabs.items.length-1){
-                            $rootScope.$broadcast('showProgressbar');
-                            postNewSeller();
-                        }
-                        else{
-                            $scope.tabs.selectedIndex += 1;
-                        }
-                  } 
-                
+                    $rootScope.$broadcast('showProgressbar');
+                    postNewSeller();
+                } else {
+                    $scope.tabs.selectedIndex += 1;
+                }
             };
+            // function validForm() {
+
+            //     var invalid = false;
+            //         var item = $scope.tabs.items[$scope.tabs.selectedIndex].formItems;
+            //         var keys = Object.keys(item);
+            //         for(var j=0; j<keys.length; j++) {
+            //             if((item[keys[j]].required && item[keys[j]].value == '') || 
+            //                 (item[keys[j]].$invalid && item[keys[j]].length >0)) {
+            //                 return false;
+            //             }
+            //         }
+            //     return true;
+            // }
+
+            // $scope.next = function() {
+            //         if(!validForm()) {
+            //             ToastService.showSimpleToast("please fill required items", 2000);
+            //             return;
+            //         }
+            //         else {
+            //             if($scope.tabs.selectedIndex == $scope.tabs.items.length-1){
+            //                 $rootScope.$broadcast('showProgressbar');
+            //                 postNewSeller();
+            //             }
+            //             else{
+            //                 $scope.tabs.selectedIndex += 1;
+            //             }
+            //       } 
+                
+            // };
 
             $scope.back = function() {
                 if($scope.tabs.selectedIndex > 0 ) {

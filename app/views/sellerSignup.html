@@ -9,10 +9,11 @@
             <md-tab data-ng-repeat="item in tabs.items" flex>
                 <md-tab-label >{{ item.label }}</md-tab-label>
                 <md-tab-body>
-                    <div md-whiteframe="4dp" class="md-padding" style="margin:0 auto; max-width:600px;" layout="column" layout-align="center center">
-                    <form name="sellerDetails" novalidate="" autocomplete="off"> 
+                    <div md-whiteframe="4dp" class="md-padding seller-signup-container" layout="column" layout-align="center center">
+                     
                        
-                        <div flex style="margin-bottom:10px;">{{item.label}}</div>
+                <div flex style="margin-bottom:10px;">{{item.label}}</div>
+                    <form name="sellerDetails" novalidate="" autocomplete="off">
                         <md-input-container layout-fill data-ng-repeat="i in item.formItems">
                         <ng-form name="sfIn">
                             <label>{{ i.label }}<span data-ng-if="i.required">*</span></label>
@@ -33,8 +34,8 @@
                                 <span  type="submit" data-ng-if="tabs.selectedIndex != tabs.items.length-1">Next</span>
                             </md-button>
                         </div>
-                        </form>
-                    
+                    </form>
+                </div>
                 </md-tab-body>
             </md-tab>
         </md-tabs>

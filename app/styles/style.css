@@ -353,3 +353,12 @@ input[type="number"] {
     /*padding-top: 10px;*/
     margin-bottom: 10px;
 }
+.seller-signup-container{
+    margin: 0 auto;
+    max-width: 600px;
+}
+@media screen and (min-width: 760px){
+    .seller-signup-container{
+        margin:10px auto;
+    }
+}
