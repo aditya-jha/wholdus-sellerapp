@@ -5,7 +5,7 @@
             var formValidation=FormValidationService;
             var factory = {
                 token: '',
-                apiBaseUrl: 'http://api-test.wholdus.com/',
+                apiBaseUrl: 'http://api.wholdus.com/',
                 apiUrl: {
                     login: 'admin/login',
                     internalUsers: 'users/internal-users',
