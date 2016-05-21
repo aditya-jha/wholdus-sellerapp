@@ -1,7 +1,8 @@
 (function() {
     "use strict";
-    sellerapp.factory("ConstantKeyValueService", [
-        function() {
+    sellerapp.factory("ConstantKeyValueService", ['FormValidationService',
+        function(FormValidationService) {
+            var formValidation=FormValidationService;
             var factory = {
                 token: '',
                 apiBaseUrl: 'http://api.wholdus.com/',
@@ -23,39 +24,54 @@
                 showProductMessage: 'The product will go live on the website once the changes have been verified',
                 noProductsMessage: 'Upload products and start distribution',
                 deleteProductMessage: 'This product has successfully been deleted',
+                
                 sellerSignup: [
                     {
                         label: 'Personal Details',
                         formItems: {
                             name: {
                                 label: 'Full Name',
+                                name:'fullName',
                                 type: 'text',
                                 required: true,
-                                value: ''
+                                value: '',
+                                pattern:'',
                             },
                             email: {
                                 label: 'Email ID',
+                                name:'emailID',
                                 type: 'email',
                                 required: true,
-                                value: ''
+                                value: '',
+                                pattern: formValidation.emailValidation,
+                                error:formValidation.emailErrorMessage
                             },
                             mobile_number: {
                                 label: 'Mobile No.',
+                                name:'mobileNumber',
                                 type: 'number',
                                 required: true,
-                                value: ''
+                                value: '',
+                                pattern: formValidation.mobileNumValidation,
+                                error:formValidation.mobileErrorMessage
                             },
                             alternate_phone_number: {
                                 label: 'Alt. Phone No.',
+                                name:'alternateMobileNumber',
                                 type: 'text',
                                 required: false,
-                                value: ''
+                                value: '',
+                                pattern:''
+                          
                             },
                             password: {
+                                
                                 label: 'Password',
+                                name:'password',
                                 type: 'password',
                                 required: true,
-                                value: ''
+                                value: '',
+                                pattern:''
                             }
                         }
                     },
@@ -67,42 +83,49 @@
                                 type: 'text',
                                 required: true,
                                 value: '',
+                                pattern:''
                             },
                             company_profile: {
                                 label: 'Company Profile',
                                 type: 'textarea',
                                 required: false,
                                 value: '',
+                                pattern:''
                             },
                             pan: {
                                 label: 'PAN',
                                 type: 'text',
                                 required: false,
                                 value: '',
+                                pattern:''
                             },
                             name_on_pan: {
                                 label: 'Nam on PAN',
                                 type: 'text',
                                 required: false,
                                 value: '',
+                                pattern:''
                             },
                             dob_on_pan: {
                                 label: 'DOB on pan',
                                 type: 'date',
                                 required: false,
                                 value: '',
+                                pattern:''
                             },
                             vat_tin: {
                                 label: 'VAT / TINs',
                                 type: 'text',
                                 required: true,
                                 value: '',
+                                pattern:''
                             },
                             cst: {
                                 label: 'CST',
                                 type: 'text',
                                 required: false,
                                 value: '',
+                                pattern:''
                             }
                         }
                     },
@@ -120,6 +143,8 @@
                                 type: 'text',
                                 required: true,
                                 value: '',
+                                pattern: formValidation.pinCodeValidation,
+                                error:formValidation.pinErrorMessage
                             },
                             landmark: {
                                 label: 'Landmark',
