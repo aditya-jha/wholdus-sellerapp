@@ -28,6 +28,7 @@
                 sellerSignup: [
                     {
                         label: 'Personal Details',
+                        completed:false,
                         formItems: {
                             name: {
                                 label: 'Full Name',
@@ -77,6 +78,7 @@
                     },
                     {
                         label: 'Company Details',
+                        completed:false,
                         formItems: {
                             company_name: {
                                 label: 'Store/Company Name',
@@ -97,7 +99,9 @@
                                 type: 'text',
                                 required: false,
                                 value: '',
-                                pattern:''
+                                pattern:'',
+                                pattern: formValidation.panValidation,
+                                error:formValidation.panErrorMessage
                             },
                             name_on_pan: {
                                 label: 'Nam on PAN',
@@ -131,6 +135,7 @@
                     },
                     {
                         label: 'Pickup Address',
+                        completed:false,
                         formItems: {
                             address: {
                                 label: 'Address',
@@ -168,6 +173,7 @@
                     },
                     {
                         label: 'Bank Account Details',
+                        completed:false,
                         formItems: {
                             account_holders_name: {
                                 label: "Account Holders Name",
@@ -203,7 +209,9 @@
                                 label: "IFSC",
                                 type: 'text',
                                 required: false,
-                                value: ''
+                                value: '',
+                                pattern: formValidation.ifscValidation,
+                                error:formValidation.ifscErrorMessage
                             },
                             branch_city: {
                                 label: "Branch City",

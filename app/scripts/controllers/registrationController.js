@@ -13,6 +13,7 @@
         function($scope, $rootScope, $location, $log, ConstantKeyValueService, APIService, ToastService, UtilService, ngProgressBarService) {
 
             var newSeller;
+            $scope.formSubmitError=false;
             $scope.tabs = {
                 selectedIndex: 0,
                 items: ConstantKeyValueService.getSellerSignupFormItems(),
@@ -62,9 +63,17 @@
                     var keys = Object.keys(item);
                     for(var j=0; j<keys.length; j++) {
                         if(item[keys[j]].required && item[keys[j]].value === '') {
+                           $scope.formSubmitError=true;
                             return false;
                         }
                     }
+                    // for(var k=0; k<$scope.tabs.items.length; k++)
+                    // {
+                    //     if(!$scope.tabs.items[k].completed)
+                    //         $scope.formSubmitError=true;
+                    //         return false;
+
+                    // }
                 }
                 return true;
             }
@@ -72,12 +81,14 @@
             $scope.next = function() {
                 if($scope.tabs.selectedIndex == $scope.tabs.items.length-1) {
                     if(!validForm()) {
-                        ToastService.showSimpleToast("Please fill all required items", 2000);
+                        ToastService.showSimpleToast("Please fill all required items with valid details", 2000);
                         return;
                     }
+
                     $rootScope.$broadcast('showProgressbar');
                     postNewSeller();
                 } else {
+                    $scope.tabs.items[$scope.tabs.selectedIndex].completed=true;
                     $scope.tabs.selectedIndex += 1;
                 }
             };

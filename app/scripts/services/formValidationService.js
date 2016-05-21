@@ -9,7 +9,11 @@
                                 mobileErrorMessage:'Enter a valid mobile number.',
                                 emailErrorMessage:'Enter a valid email address.',
                                 pinCodeValidation:(/^([0-9]{6})$/).toString().split('/').join(''),
-                                pinErrorMessage:'Enter a valid pin number'};
+                                pinErrorMessage:'Enter a valid pin number.',
+                                ifscValidation:(/^([a-zA-Z]{4}[0-9]{7})$/).toString().split('/').join(''),
+                                ifscErrorMessage:'Enter a valid IFSC code.',
+                                panValidation:(/^([A-Za-z]{5}\d{4}[A-Za-z]{1})$/).toString().split('/').join(''),
+                                panErrorMessage:'Enter a valid PAN number.'};
             
             return validations;
         
