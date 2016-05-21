@@ -39,7 +39,7 @@ a:active {
 }
 
 #header-toolbar {
-    font-family: 'Comfortaa';
+    font-family: 'Comfortaa', cursive;
     font-size: 1.1em;
 }
 
@@ -135,7 +135,7 @@ md-list-item > a {
 
 .profile-detail-card .md-title {
     text-align: center;
-    font-family: 'Comfortaa';
+    font-family: 'Comfortaa', cursive;
 }
 
 .profile-detail-card md-input-container {
@@ -261,7 +261,7 @@ md-list-item > a {
 }
 
 .register-title {
-    font-family: 'Comfortaa';
+    font-family: 'Comfortaa', cursive;
     font-size:1em;
     text-align: center;
 }
