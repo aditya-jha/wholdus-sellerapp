@@ -1,0 +1,56 @@
+<div layout="column" data-ng-if="orders.length>0" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat="o in orders">
+    <div layout="row" layout-xs="column" flex>
+        <div layout="column" flex="50" flex-xs="100">
+            <span class="order-number"><strong>Order No: {{ o.suborder.order.orderID }}</strong></span>
+            <span class="product-name">{{ o.product.name }}</span>
+            <div layout="row">
+                <div layout="column" flex="100">
+                    <div layout="column" class="card-item">
+                        <span class="card-item-title" flex>Catalog No.</span>
+                        <span>{{ o.product.details.seller_catalog_number }}</span>
+                    </div>
+                    <div layout="column" class="card-item-remarks">
+                        <span class="card-item-title" flex>Remarks</span>
+                        <span>{{o.remarks || 'None'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr flex/></span>
+        <div layout="row" flex="50" flex-xs="100">
+            <div layout="column" flex="50">
+                <div layout="column" class="card-item">
+                    <span class="card-item-title" flex>Pieces per lot</span>
+                    <span>{{ o.lot_size }}</span>
+                </div>
+                <div layout="column" class="card-item">
+                    <span class="card-item-title" flex>lots</span>
+                    <span flex>{{ o.lots }}</span>
+                </div>
+                <div layout="column" class="card-item">
+                    <span class="card-item-title" flex>Price per piece</span>
+                    <span flex>Rs. {{ o.actual_price_per_piece }}</span>
+                </div>
+            </div>
+            <hr flex/></span>
+            <div layout="column" flex="50">
+                <div layout="column" class="card-item">
+                    <span class="card-item-title" flex>Order Date</span>
+                    <span>{{ o.created_at | date }}</span>
+                </div>
+                <div layout="column" class="card-item">
+                    <span class="card-item-title" flex>Price per lot</span>
+                    <span flex>Rs. {{ o.actual_price_per_piece*o.lot_size }}</span>
+                </div>
+                <div layout="column" class="card-item">
+                    <span class="card-item-title">Amount</span>
+                    <span>{{ o.final_price }}</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div data-ng-if="settings.noOrders" layout="column" layout-align="center center">
+    No Orders!
+</div>
