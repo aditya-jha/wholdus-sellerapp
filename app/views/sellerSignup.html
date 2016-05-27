@@ -1,4 +1,4 @@
-<md-content flex>
+<md-content data-ng-if="hit == 0" flex>
 
     <div layout="row" class="filler-container" layout-align="center start">
         <h2 class="md-title">Register And Start Distribution</h2>
@@ -42,3 +42,4 @@
     </div>
    
 </md-content>
+<div data-ng-if="hit==1" ng-include="'views/registrationSuccessful.html'" flex></div>

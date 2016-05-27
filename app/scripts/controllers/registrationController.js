@@ -12,6 +12,7 @@
         'ngProgressBarService',
         function($scope, $rootScope, $location, $log, ConstantKeyValueService, APIService, ToastService, UtilService, ngProgressBarService) {
 
+             $scope.hit = 0;
             var newSeller;
             $scope.formSubmitError=false;
             $scope.tabs = {
@@ -82,7 +83,11 @@
                 if($scope.tabs.selectedIndex == $scope.tabs.items.length-1) {
                     if(!validForm()) {
                         ToastService.showSimpleToast("Please fill all required items with valid details", 2000);
+                        $scope.hit=0;
                         return;
+                    }
+                    else{
+                        $scope.hit=1;
                     }
 
                     $rootScope.$broadcast('showProgressbar');
@@ -92,7 +97,9 @@
                     $scope.tabs.selectedIndex += 1;
                 }
             };
-         
+
+            
+            
             $scope.back = function() {
                 if($scope.tabs.selectedIndex > 0 ) {
                     $scope.tabs.selectedIndex -= 1;
