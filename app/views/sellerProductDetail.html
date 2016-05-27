@@ -1,0 +1,124 @@
+<div class="container" layout="row" flex ng-cloak>
+    <div layout="row" psa-sidenav></div>
+    <md-content class="md-padding" flex>
+        <div layout-xs="column" layout-gt-sm="row" flex>
+            <div class="md-padding"  flex="40" flex-xs="100" flex-sm="100">
+                <div flex layout-xs="column" layout-gt-xs="column" layout-align="center" md-whiteframe="4dp" class="profile-detail-card">
+                    <span class="text-center">Basic Information</span>
+                    <md-input-container>
+                        <label>Product Name</label>
+                        <input type="text" ng-model="products.name" ng-required="true">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Brand</label>
+                        <input type="text" ng-model="products.details.brand" ng-required="true">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Catergory</label>
+                        <input type="text" ng-model="products.category.display_name" ng-required="true">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Catalog Number</label>
+                        <input type="text" ng-model="products.details.seller_catalog_number" ng-required="true">
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="product-detail-image" md-whiteframe="4dp">
+                <div flex layout-xs="column" layout-gt-xs="row" layout-align="center">
+                    <img data-ng-if="products" data-ng-src="{{getImageUrl()}}" alt="{{products.name}}" />
+                    <!-- <img data-ng-src="{{getImageUrl()}}" alt="{{products.name}}" /> -->
+                </div>
+                <!-- <div flex layout-xs="column" layout-gt-xs="row" layout-align="center">
+                    <img src="images/thumbnail.png" alt="image" />
+                    <img src="images/thumbnail.png" alt="image" />
+                </div> -->
+            </div>
+        </div>
+
+        <div layout-xs="column" layout-gt-sm="row">
+            <div class="md-padding" flex="40" flex-xs="100" flex-sm="100">
+                <div layout-xs="column" layout-gt-xs="column" layout-align="center" class="profile-detail-card" md-whiteframe="4dp">
+                    <span class="text-center">Features</span>
+                    <md-input-container>
+                        <label>Gender</label>
+                        <input type="text" ng-model="products.details.gender">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Fabric / GSM</label>
+                        <input type="text" ng-model="products.details.fabric_gsm">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Pattern</label>
+                        <input type="text" ng-model="products.details.pattern">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Work / Description</label>
+                        <input type="text" ng-model="products.details.work_decoration_type">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Color</label>
+                        <input type="text" ng-model="products.details.colours">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Neck / Collar Type</label>
+                        <input type="text" ng-model="products.details.neck_collar_type">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Sleeve</label>
+                        <input type="text" ng-model="products.details.sleeve">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Sizes</label>
+                        <input type="text" ng-model="products.details.sizes">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Length</label>
+                        <input type="text" ng-model="products.details.length">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Extra Features</label>
+                        <textarea ng-model="products.details.special_feature" rows="5" cols="5"></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="md-padding" flex>
+                <div layout-xs="column" layout-gt-xs="column" layout-align="center" class="profile-detail-card" md-whiteframe="4dp">
+                    <span class="text-center">Pricing</span>
+                    <md-input-container>
+                        <label>Packaging Details / Lot Description</label>
+                        <textarea type="text" ng-model="products.details.packaging_details" cols="10" ng-required="true"></textarea>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Retail Price Per Unit</label>
+                        <input type="text" ng-model="products.price_per_unit" ng-required="true" />
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Lot Size (units per lot)</label>
+                        <input type="number" ng-model="products.lot_size" ng-required="true" />
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Minimum Lot Quantity</label>
+                        <input type="number" ng-model="products.product_lot[0].lot_size_from" ng-required="true" />
+                    </md-input-container>
+                    <span>Lot Pricing</span>
+                    <div layout="row" data-ng-repeat="pl in products.product_lot">
+                        <md-input-container>
+                            <label>Lot Size From</label>
+                            <input type="number" ng-model="pl.lot_size_from" ng-required="true" />
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Rs. Per Unit</label>
+                            <input type="text" ng-model="pl.price_per_unit" ng-required="true" />
+                        </md-input-container>
+                    </div>
+                </div>
+                <div class="md-padding" layout="row" flex>
+                    <md-button class="md-raised" data-ng-if="products.show_online" data-ng-click="toggleProductStats(0)">Hide</md-button>
+                    <md-button class="md-raised" data-ng-if="!products.show_online" data-ng-click="toggleProductStats(1)">Show</md-button>
+                    <md-button class="md-raised md-warn" data-ng-click="toggleProductStats(-1)">Delete</md-button>
+                </div>
+            </div>
+
+        </div>
+    </md-content>
+</div>

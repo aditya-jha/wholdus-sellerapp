@@ -1,0 +1,24 @@
+<md-toolbar layout="column">
+    <p>Register And Start Distribution</p>
+</md-toolbar>
+<md-content class="md-padding">
+    <md-tabs md-selected="tabs.selected" md-align-tabs="top" md-dynamic-height md-border-bottom>
+        <md-tab data-ng-repeat="tab in tabs.items">
+            <md-tab-label>{{ tab.label }}</md-tab-label>
+            <md-tab-body class="tab-content">
+                <span>{{ tab.label }}</span>
+                <md-input-container class="md-block" flex-gt-xs data-ng-repeat="formItem in tab.formItems">
+                    <label>{{ formItem.label }}</label>
+                    <input type="{{ formItem.type }}" ng-model="formItem.value" ng-required="{{ formItem.required }}">
+                </md-input-container>
+                <md-content layout="row">
+                    <md-button ng-disabled="tabs.selected==0" class="md-raised md-warn" data-ng-click="back()">back</md-button>
+                    <md-button class="md-raised md-primary" aria-label="Next" data-ng-click="next()">
+                        <span data-ng-if="tabs.selected == tabs.items.length-1">Start Distribution</span>
+                        <span data-ng-if="tabs.selected != tabs.items.length-1">Next</span>
+                    </md-button>
+                </md-content>
+            </md-tab-body>
+        </md-tab>
+    </md-tabs>
+</md-content>
