@@ -48,7 +48,7 @@
                     newSeller = null;
                     $scope.tabs.items = ConstantKeyValueService.getSellerSignupFormItems();
                     $rootScope.$broadcast('endProgressbar');
-                    ToastService.showSimpleToast(ConstantKeyValueService.sellerSuccessSignup, 5000);
+                    $scope.hit=1;
 
                 }, function(error) {
                     newSeller = null;
@@ -85,9 +85,6 @@
                         ToastService.showSimpleToast("Please fill all required items with valid details", 2000);
                         $scope.hit=0;
                         return;
-                    }
-                    else{
-                        $scope.hit=1;
                     }
 
                     $rootScope.$broadcast('showProgressbar');
