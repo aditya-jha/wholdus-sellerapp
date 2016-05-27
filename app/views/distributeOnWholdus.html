@@ -1,0 +1,80 @@
+<md-content flex>
+    <div layout="row" layout-xs="column" layout-padding="">
+        <div flex layout="column" md-whiteframe="4dp" class="register-intro-container" layout-padding>
+            <span>Step 1</span>
+            <md-button aria-label="register on wholdus">
+                <md-icon md-svg-icon="images/Form2.svg"></md-icon>
+            </md-button>
+            <span>Fill the registration form</span>
+            <span>You can go to the main form by filling details below</span>
+        </div>
+        <div layout="column" flex md-whiteframe="4dp" class="register-intro-container" layout-padding>
+            <span>Step 2</span>
+            <md-button aria-label="upload your catalog">
+                <md-icon md-svg-icon="images/image-cloud.svg"></md-icon>
+            </md-button>
+            <span>Upload your catalog</span>
+            <span>Our team will help you throughout the process</span>
+        </div>
+        <div layout="column" flex md-whiteframe="4dp" class="register-intro-container" style="margin-right: 0em;" layout-padding>
+            <span>Step 3</span>
+            <md-button aria-label="we handle payment">
+                <md-icon md-svg-icon="images/truck.svg"></md-icon>
+            </md-button>
+            <span>Wait for the demand</span>
+            <span>We handle everything from logistics to payment</span>
+        </div>
+    </div>
+    <div layout="row" layout-xs="column" layout-margin class="top-container"  layout-align="center center">
+        <div layout="row" md-whiteframe="4dp" class="register-form-container" layout-align="center center">
+        
+            <div layout="column" layout-padding flex>
+                <span class="register-title">Register</span>
+                <form name="sellerRegisterForm" novalidate autocomplete="off">
+                <div layout="column">
+                
+                    <md-input-container>
+                        <label>Mobile Number</label>
+                        <input  type="number" data-ng-model="mobile_number" 
+                                name="mobNum" ng-pattern="formValidation.mobileNumValidation" required=""/>
+                      
+                         <div ng-messages="sellerRegisterForm.mobNum.$error" role="alert" ng-if="sellerRegisterForm.mobNum.$dirty || sellerRegisterForm.$submitted" >
+                                <div ng-message="required" class="formError">This is required.</div>
+                                <div ng-message="pattern" class="formError">
+                                    {{formValidation.mobileErrorMessage}}
+                                </div>
+                            </div>     
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Email</label>
+                        <input  data-ng-model="email" name="email"  ng-pattern="formValidation.emailValidation" 
+                         required="" />
+                        
+                          <div ng-messages="sellerRegisterForm.email.$error" ng-if="sellerRegisterForm.email.$dirty || sellerRegisterForm.$submitted"
+                          role="alert">
+                                <div ng-message="required" class="formError">This is required.</div>
+                                <div ng-message="pattern" class="formError">{{formValidation.emailErrorMessage}}</div>
+                               
+                          </div>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Company Name</label>
+                        <input type="text" data-ng-model="name" name="companyName" required="" />
+                        <div ng-messages="sellerRegisterForm.companyName.$error" ng-if="sellerRegisterForm.companyName.$dirty || sellerRegisterForm.$submitted" role="alert">
+                                <div ng-message="required" class="formError">This is required.</div>
+                        </div>
+                    </md-input-container>
+                    <div layout="row" flex="none">
+                        <md-button type="submit" class="md-raised md-warn" data-ng-click="register()">Register</md-button>
+                    </div>
+                    
+                </div>
+                </form>
+            </div>
+        </div>
+        <div layout="row" flex-xs='100' flex-sm="50" class="video" layout-padding>
+            <iframe src="https://www.youtube.com/embed/n_YHYyQiCak" frameborder="0" allowfullscreen class="md-card-image"></iframe>
+        </div>
+    </div>
+
+</md-content>
