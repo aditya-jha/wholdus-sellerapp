@@ -4,9 +4,7 @@
         return {
             restrict: 'AE',
             templateUrl: 'views/directives/psaSidenav.html',
-            scope: {
-
-            },
+            scope: {},
             link: function(scope, element, attributes) {
             },
             controller: [
