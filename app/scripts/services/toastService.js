@@ -11,8 +11,18 @@
                 $mdToast.show($mdToast
                     .simple()
                     .textContent(content)
-                    .hideDelay(delay)
+                    .hideDelay(delay)                   
                 );
+            };
+
+            factory.showActionToast = function(content){
+                $mdToast.show($mdToast
+                    .simple()
+                    .textContent(content)
+                    .hideDelay(false)
+                    .action("ok")
+                    .highlightAction(false)
+                    );
             };
 
             return factory;

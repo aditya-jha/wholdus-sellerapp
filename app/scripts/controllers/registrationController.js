@@ -52,8 +52,9 @@
 
                 }, function(error) {
                     newSeller = null;
+                    var str= error.error;
                     $rootScope.$broadcast('endProgressbar');
-                    ToastService.showSimpleToast(error, 3000);
+                    ToastService.showActionToast(str.charAt(0).toUpperCase() + str.slice(1));
                 });
             }
 
@@ -82,7 +83,7 @@
             $scope.next = function() {
                 if($scope.tabs.selectedIndex == $scope.tabs.items.length-1) {
                     if(!validForm()) {
-                        ToastService.showSimpleToast("Please fill all required items with valid details", 2000);
+                        ToastService.showSimpleToast("Please fill all required items with valid details", 2200);
                         $scope.hit=0;
                         return;
                     }
