@@ -54,7 +54,7 @@
                     newSeller = null;
                     var str= error.error;
                     $rootScope.$broadcast('endProgressbar');
-                    ToastService.showActionToast(str.charAt(0).toUpperCase() + str.slice(1));
+                    ToastService.showActionToast((str.charAt(0).toUpperCase() + str.slice(1)),0);
                 });
             }
 
