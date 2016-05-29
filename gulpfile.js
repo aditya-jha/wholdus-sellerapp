@@ -28,6 +28,7 @@ var jsCustom = [
     'app/scripts/services/ngProgressbarService.js',
     'app/scripts/services/loginService.js',
     'app/scripts/services/orderService.js',
+    'app/scripts/services/formValidationService.js',
     'app/scripts/directives/psaHeader.js',
     'app/scripts/directives/psaSidenav.js',
     'app/scripts/directives/wdPagination.js',
