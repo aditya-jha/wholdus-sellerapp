@@ -16,14 +16,17 @@
                 noOrders: false
             };
 
-            function fetchOrders(params) {
+            function fetchOrders(params, urlType) {
+                if(!urlType) {
+                    urlType = "orders";
+                }
                 $scope.settings.noOrders = false;
                 $rootScope.$broadcast('showProgressbar');
-                var apicall = APIService.apiCall("GET", APIService.getAPIUrl("orders"), null, params);
+                var apicall = APIService.apiCall("GET", APIService.getAPIUrl(urlType), null, params);
                 apicall.then(function(response) {
                     $rootScope.$broadcast('endProgressbar');
-                    $scope.orders = response.order_items;
-                    if(response.order_items.length === 0) {
+                    $scope.orders = response.sub_orders;
+                    if(response.sub_orders.length === 0) {
                         $scope.settings.noOrders = true;
                     }
                 }, function(error) {
@@ -39,7 +42,7 @@
             $scope.$watch('settings.activePage', function() {
                 if($scope.settings.activePage === 0) {
                     $scope.orders = [];
-                    fetchOrders({status: '1'});
+                    fetchOrders({status: '1'}, 'subOrders');
                 } else if($scope.settings.activePage === 1) {
                     $scope.orders = [];
                     fetchOrders({status: '2,3'});
