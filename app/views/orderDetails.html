@@ -3,7 +3,7 @@
     <md-content layout="row" class="md-padding" flex layout-wrap>
         <div layout="row" layout-wrap flex="100" layout-align="space-between start">
             <div flex="100">
-                Order No: <span class="bold underline">{{order.suborderID}}</span>
+                Order No: <span class="bold underline">{{order.display_number}}</span>
             </div>
             <div layout="row" flex="45" flex-xs="100" class="order-acknowledge-card" md-whiteframe="4dp" layout-wrap>
                 <span class="bold center underline" flex="100">Buyer Details</span>
@@ -39,27 +39,27 @@
 
         <div layout="row" flex="100" layout-wrap md-whiteframe="4dp" class="order-acknowledge-card" data-ng-repeat="oi in order.order_items">
             <div layout="column" class="card-item" flex-xs="100" flex="40">
-                <span class="card-item-title" flex>Product</span>
+                <span class="card-item-title">Product</span>
                 <span class="bold" style="padding-right:0.5em;">{{oi.product.name}}</span>
             </div>
             <div layout="column" class="card-item" flex-xs="100" flex="15">
-                <span class="card-item-title" flex>Catalog No.</span>
+                <span class="card-item-title">Catalog No.</span>
                 <span>{{oi.product.details.seller_catalog_number}}</span>
             </div>
             <div layout="column" class="card-item" flex-xs="100" flex="15">
-                <span class="card-item-title" flex>Pieces</span>
+                <span class="card-item-title">Pieces</span>
                 <span class="bold">{{oi.pieces}}</span>
             </div>
             <div layout="column" class="card-item" flex-xs="100" flex="15">
-                <span class="card-item-title" flex>Price Per Piece</span>
+                <span class="card-item-title">Price Per Piece</span>
                 <span class="bold">{{oi.edited_price_per_piece}}</span>
             </div>
             <div layout="column" class="card-item" flex-xs="100" flex="15">
-                <span class="card-item-title" flex>Amount</span>
+                <span class="card-item-title">Amount</span>
                 <span class="bold">{{oi.final_price}}</span>
             </div>
             <div layout="column" class="card-item" flex-xs="100" flex="40">
-                <span class="card-item-title" flex>Remarks</span>
+                <span class="card-item-title">Remarks</span>
                 <span class="bold">{{oi.remarks ? oi.remarks : 'No Remarks'}}</span>
             </div>
             <div layout="row" layout-align="space-around center" flex="60">
