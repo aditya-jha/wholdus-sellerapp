@@ -13,12 +13,19 @@
             <div class="md-dialog-content">
                 <md-input-container layout-fill>
                     <label>Email</label>
-                    <input type="email" data-ng-model="email" required />
+                    <input data-ng-model="email" name="email"  ng-pattern="formValidation.emailValidation" required="">
+                         <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$dirty || loginForm.$submitted" role="alert">
+                                <div ng-message="required" class="formError">This is required.</div>
+                                <div ng-message="pattern" class="formError">{{formValidation.emailErrorMessage}}</div>
+                               
+                          </div>
                 </md-input-container>
 
                 <md-input-container layout-fill>
                     <label>Password</label>
-                    <input type="password" data-ng-model="password" required />
+                    <input type="password" name="password" data-ng-model="password" required />
+                    <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$dirty || loginForm.$submitted" role="alert">
+                    <div ng-message="required" class="formError">This is required.</div>
                 </md-input-container>
             </div>
         </md-dialog-content>
