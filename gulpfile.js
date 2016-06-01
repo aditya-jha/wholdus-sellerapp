@@ -35,6 +35,7 @@ var jsCustom = [
     'app/scripts/controllers/registrationController.js',
     'app/scripts/controllers/profileController.js',
     'app/scripts/controllers/orderController.js',
+    'app/scripts/controllers/orderDetailController.js',
     'app/scripts/controllers/productController.js',
     'app/scripts/controllers/loginPopupController.js',
     'app/scripts/controllers/paymentController.js',
