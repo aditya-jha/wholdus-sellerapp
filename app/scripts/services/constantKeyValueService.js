@@ -66,15 +66,6 @@
                                 pattern:''
 
                             },
-                            password: {
-
-                                label: 'Password',
-                                name:'password',
-                                type: 'password',
-                                required: true,
-                                value: '',
-                                pattern:''
-                            }
                         }
                     },
                     {
