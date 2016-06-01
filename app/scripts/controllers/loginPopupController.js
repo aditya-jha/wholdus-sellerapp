@@ -8,8 +8,11 @@
         'ngProgressBarService',
         '$rootScope',
         '$log',
-        function($scope, $mdDialog, LoginService, ToastService, ngProgressBarService, $rootScope, $log) {
+        'FormValidationService',
+        function($scope, $mdDialog, LoginService, ToastService, ngProgressBarService, $rootScope, $log, FormValidationService) {
 
+            $scope.formValidation = FormValidationService;
+            
             var loginApiCall;
 
             $scope.hide = function() {
