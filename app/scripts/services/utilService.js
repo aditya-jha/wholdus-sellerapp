@@ -18,6 +18,7 @@
                     alternate_phone_number: data[0].formItems.mobile_number.value,
                     email: data[0].formItems.email.value,
                     email_verification: false,
+                    password: data[0].formItems.password.value,
                     company_name: data[1].formItems.company_name.value,
                     company_profile: data[1].formItems.company_profile.value,
                     address: {
@@ -68,7 +69,7 @@
                 obj[0].formItems.email.value = values.email;
                 obj[0].formItems.name.value = values.name;
                 obj[0].formItems.mobile_number.value = parseInt(values.mobile_number);
-
+                obj[0].formItems.password.value = values.password;
                 obj[1].formItems.company_name.value = values.company_name;
                 obj[1].formItems.company_profile.value = values.company_profile;
                 obj[1].formItems.cst.value = values.details.cst;
