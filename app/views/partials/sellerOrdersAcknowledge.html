@@ -1,9 +1,9 @@
 <div layout="row" layout-wrap data-ng-if="orders.length>0" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat="o in orders">
-    <div layout="row" flex="100" layout-wrap data-ng-href="/my-orders/{{o.orderID}}/{{o.suborderID}}">
+    <div layout="row" flex="100" layout-wrap>
         <div layout="row" layout-xs="column" flex="100">
             <span class="order-number">
                 <strong>Order No:
-                    <a data-ng-href="/my-orders/{{o.orderID}}/{{o.suborderID}}" class="underline">
+                    <a data-ng-href="/my-orders/{{o.orderID}}/{{o.suborderID}}/{{settings.activePage}}" class="underline">
                         {{ o.display_number }}
                     </a>
                     <md-tooltip>View Details</md-tooltip>

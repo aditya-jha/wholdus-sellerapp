@@ -26,7 +26,7 @@ sellerapp.config([
         }).when('/my-orders', {
             templateUrl: 'views/sellerOrders.html',
             controller: 'OrderController'
-        }).when('/my-orders/:orderID/:suborderID', {
+        }).when('/my-orders/:orderID/:suborderID/:activePage', {
             templateUrl: 'views/orderDetails.html',
             controller: 'OrderDetailController'
         }).when('/my-products', {
