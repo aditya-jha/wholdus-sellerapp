@@ -80,22 +80,22 @@
                     <md-button class="md-raised md-primary" data-ng-href="{{o.tracking_url}}" target="_blank">Track</md-button>
                 </div>
             </div> -->
-            <div layout="row" flex="50" flex-offset="20" layout-wrap>
+            <div layout="row" flex="100" flex-offset="20" flex-offset-xs="0" layout-wrap class="order-acknowledge-card" md-whiteframe="4dp">
                 <div layout="row" class="card-item" flex="100">
-                    <span class="card-item-title" flex="50">Sub Total</span>
-                    <span class="bold" flex="50">{{order.edited_price}}</span>
+                    <span class="card-item-title" flex="20" flex-xs="30">Sub Total</span>
+                    <span class="bold" flex="70">{{order.edited_price}}</span>
                 </div>
                 <div layout="row" class="card-item" flex="100">
-                    <span class="card-item-title" flex="50">Shipping Cost</span>
-                    <span class="bold" flex="50">{{order.shipping_charge}}</span>
+                    <span class="card-item-title" flex="20" flex-xs="30">Shipping Cost</span>
+                    <span class="bold" flex="70">{{order.shipping_charge > 0 ? order.shipping_charge : 'To be calculated'}}</span>
                 </div>
                 <div layout="row" class="card-item" flex="100">
-                    <span class="card-item-title" flex="50">COD Cost</span>
-                    <span class="bold" flex="50">{{order.cod_charge}}</span>
+                    <span class="card-item-title" flex="20" flex-xs="30">COD Cost</span>
+                    <span class="bold" flex="70">{{order.cod_charge > 0 ? order.cod_charge : 'To be calculated'}}</span>
                 </div>
                 <div layout="row" class="card-item" flex="100">
-                    <span class="card-item-title" flex="50">Total</span>
-                    <span class="bold" flex="50">{{order.final_price}}</span>
+                    <span class="card-item-title" flex="20" flex-xs="30">Total</span>
+                    <span class="bold" flex="70">{{order.final_price}}</span>
                 </div>
             </div>
         </div>
