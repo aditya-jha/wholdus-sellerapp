@@ -17,6 +17,9 @@ img {
     height: 100%;
 }
 
+.break-word {
+    word-wrap: break-word;
+}
 .center {
     text-align: center;
 }

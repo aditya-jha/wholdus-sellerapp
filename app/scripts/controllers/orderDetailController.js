@@ -32,14 +32,14 @@
                     APIService.apiCall("GET", APIService.getAPIUrl("subOrders"), null, params)
                         .then(function(response) {
                             if(response.sub_orders.length === 0) {
-                                $location.url('my-orders');
+                                $location.url('/my-orders');
                             } else {
                                 $scope.order = response.sub_orders[0];
                             }
                             $rootScope.$broadcast('endProgressbar');
                         }, function(error) {
                             $rootScope.$broadcast('endProgressbar');
-                            $location.url('my-orders');
+                            $location.url('/my-orders');
                         });
                 }
             }

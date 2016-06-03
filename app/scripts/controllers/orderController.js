@@ -16,6 +16,11 @@
                 noOrders: false
             };
 
+            function setPageType() {
+                $scope.page = $scope.settings.activePage == '1' ? 'acknowledge' : 'shipment';
+            }
+            setPageType();
+
             function fetchOrders(params, urlType) {
                 $scope.settings.noOrders = false;
                 $rootScope.$broadcast('showProgressbar');
@@ -56,6 +61,7 @@
                     $scope.orders = [];
                     fetchOrders({status: '4,5,6,7,8,9'}, 'shipments');
                 }
+                setPageType();
             });
         }
     ]);
