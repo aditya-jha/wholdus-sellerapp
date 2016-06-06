@@ -2,26 +2,30 @@
     <div layout="row" psa-sidenav></div>
     <md-content class="md-padding" layout-xs="column" layout-gt-xs="column" flex>
         <md-content md-padding ng-cloak>
-            <div data-ng-if="orders.length>0" layout="column" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat="o in orders">
-                <span class="order-number"><strong>Order No: {{ o.suborder.order.orderID }}</strong></span>
+            <div layout="column" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card">
+                <span class="order-number"><strong>Order No: {{ payment.suborderID }}</strong></span>
                 <div layout="column" flex>
                     <div layout="row" layout-xs="column" flex>
-                        <div layout="column" flex="50" flex-xs="100">
+                        <div layout="column" flex="50" flex-xs="100" data-ng-repeat="o in payment.order_items">
                             <span class="product-name">{{ o.product.name }}</span>
                             <div layout="row" flex class="card-item-row">
-                                <div layout="column" class="card-item" flex>
+                                <div layout="column" class="card-item" flex="50">
                                     <span class="card-item-title" flex>Catalog No</span>
                                     <span>{{ o.product.details.seller_catalog_number }}</span>
                                 </div>
-                                <div layout="column" class="card-item" flex>
+                                <div layout="column" class="card-item" flex="25">
                                     <span class="card-item-title" flex>Lots</span>
                                     <span>{{ o.lots }}</span>
+                                </div>
+                                <div layout="column" class="card-item" flex="25">
+                                    <span class="card-item-title" flex>Lot-size</span>
+                                    <span>{{ o.lot_size }}</span>
                                 </div>
                             </div>
                             <div layout="row" flex class="card-item-row">
                                 <div layout="column" class="card-item" flex>
                                     <span class="card-item-title" flex>Order Date</span>
-                                    <span>{{ o.created_at | date }}</span>
+                                    <span>{{ payment.created_at | date }}</span>
                                 </div>
                                 <div class="card-item" flex>
                                     <div layout="column" flex class="card-item">
@@ -32,7 +36,7 @@
                             </div>
                             <md-button class="md-raised md-primary">Invoice</md-button>
                         </div>
-                        <hr flex/></hr>
+                        <hr flex/>
                         <div layout="row" flex="50" flex-xs="100">
                             <div layout="column" flex-xs="100" flex="50">
                                 <div layout="column" flex class="card-item">
@@ -45,21 +49,21 @@
                                 </div>
                                 <div layout="column" class="card-item">
                                     <span class="card-item-title">Payment</span>
-                                    <span>Rs. {{ o.seller_payment.amount_paid }}</span>
+                                    <span>Rs. {{ payment.payment_value }}</span>
                                 </div>
                             </div>
                             <div layout="column" flex-xs="100" flex="50">
                                 <div layout="column" flex class="card-item">
                                     <span class="card-item-title" flex>Payment Details</span>
-                                    <span>{{ o.seller_payment.details }}</span>
+                                    <span>{{ payment.details }}</span>
                                 </div>
                                 <div layout="column" flex class="card-item">
                                     <span class="card-item-title" flex>Date of payment</span>
-                                    <span>{{ o.seller_payment.payment_time | date }}</span>
+                                    <span>{{ payment.payment_time | date }}</span>
                                 </div>
                                 <div layout="column" flex class="card-item">
                                     <span class="card-item-title" flex>payment mode</span>
-                                    <span flex>{{ o.seller_payment.payment_method }}</span>
+                                    <span flex>{{ payment.payment_method }}</span>
                                 </div>
                             </div>
                         </div>

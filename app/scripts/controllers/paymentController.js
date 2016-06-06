@@ -6,21 +6,25 @@
         '$log',
         'ngProgressBarService',
         'APIService',
-        function($scope, $rootScope, $log, ngProgressBarService, APIService) {
+        'ConstantKeyValueService',
+        '$routeParams',
+        function($scope, $rootScope, $log, ngProgressBarService, APIService, ConstantKeyValueService, $routeParams) {
             $scope.settings = {
                 noPayments: false
             };
 
-            $scope.orders = [];
+            $scope.payment = [];
 
             function fetchOrders(params) {
                 $scope.settings.noPayments = false;
                 $rootScope.$broadcast('showProgressbar');
-                var apicall = APIService.apiCall("GET", APIService.getAPIUrl("orders"), null, params);
+                var apicall = APIService.apiCall("GET", APIService.getAPIUrl("sellerpayment"), null, params);
                 apicall.then(function(response) {
                     $rootScope.$broadcast('endProgressbar');
-                    $scope.orders = response.order_items;
-                    if(response.order_items.length === 0) {
+                    if(response.seller_payments.length > 0){
+                    $scope.payment = response.seller_payments[0];
+                    } 
+                    else {
                         $scope.settings.noPayments = true;
                     }
                 }, function(error) {
@@ -29,8 +33,10 @@
                 });
             }
 
-            fetchOrders({status:"12"});
+            fetchOrders();
         }
 
     ]);
 })();
+
+
