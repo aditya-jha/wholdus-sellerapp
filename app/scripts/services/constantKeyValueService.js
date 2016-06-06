@@ -13,9 +13,9 @@
                     buyers: 'users/buyer',
                     sellers: 'users/seller',
                     orders: 'orders',
+                    sellerpayment: 'sellerpayment',
                     subOrders: 'suborder',
                     shipments: 'ordershipment',
-                    payments: 'payments',
                     products: 'products',
                     sellerLogin: 'users/seller/login'
                 },
