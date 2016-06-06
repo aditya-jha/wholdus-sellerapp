@@ -22,7 +22,7 @@
                 apicall.then(function(response) {
                     $rootScope.$broadcast('endProgressbar');
                     if(response.seller_payments.length > 0){
-                    $scope.payment = response.seller_payments[0];
+                    $scope.payment = response.seller_payments;
                     } 
                     else {
                         $scope.settings.noPayments = true;

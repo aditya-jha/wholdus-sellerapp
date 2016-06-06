@@ -2,10 +2,10 @@
     <div layout="row" psa-sidenav></div>
     <md-content class="md-padding" layout-xs="column" layout-gt-xs="column" flex>
         <md-content md-padding ng-cloak>
-            <div layout="column" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card">
-                <span class="order-number"><strong>Order No: {{ payment.suborderID }}</strong></span>
+            <div layout="column" data-ng-if = "payment.length > 0" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat = "p in payment">
+                <span class="order-number"><strong>Order No: {{ p.suborderID }}</strong></span>
                 <div layout="column" flex>
-                    <div layout="row" layout-xs="column" flex data-ng-repeat="o in payment.order_items">
+                    <div layout="row" layout-xs="column" flex data-ng-repeat="o in p.order_items">
                         <div layout="column" flex="50" flex-xs="100">
                             <span class="product-name">{{ o.product.name }}</span>
                             <div layout="row" flex class="card-item-row">
@@ -25,7 +25,7 @@
                             <div layout="row" flex class="card-item-row">
                                 <div layout="column" class="card-item" flex>
                                     <span class="card-item-title" flex>Order Date</span>
-                                    <span>{{ payment.created_at | date }}</span>
+                                    <span>{{ p.created_at | date }}</span>
                                 </div>
                                 <div class="card-item" flex>
                                     <div layout="column" flex class="card-item">
@@ -49,21 +49,21 @@
                                 </div>
                                 <div layout="column" class="card-item">
                                     <span class="card-item-title">Payment</span>
-                                    <span>Rs. {{ payment.payment_value }}</span>
+                                    <span>Rs. {{ p.payment_value }}</span>
                                 </div>
                             </div>
                             <div layout="column" flex-xs="100" flex="50">
                                 <div layout="column" flex class="card-item">
                                     <span class="card-item-title" flex>Payment Details</span>
-                                    <span>{{ payment.details }}</span>
+                                    <span>{{ p.details }}</span>
                                 </div>
                                 <div layout="column" flex class="card-item">
                                     <span class="card-item-title" flex>Date of payment</span>
-                                    <span>{{ payment.payment_time | date }}</span>
+                                    <span>{{ p.payment_time | date }}</span>
                                 </div>
                                 <div layout="column" flex class="card-item">
                                     <span class="card-item-title" flex>payment mode</span>
-                                    <span flex>{{ payment.payment_method }}</span>
+                                    <span flex>{{ p.payment_method }}</span>
                                 </div>
                             </div>
                         </div>
