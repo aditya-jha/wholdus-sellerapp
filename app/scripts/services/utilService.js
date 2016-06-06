@@ -68,9 +68,8 @@
                 obj[0].formItems.alternate_phone_number.value = values.alternate_phone_number;
                 obj[0].formItems.email.value = values.email;
                 obj[0].formItems.name.value = values.name;
-                obj[0].formItems.password.value = values.password;
                 obj[0].formItems.mobile_number.value = parseInt(values.mobile_number);
-
+                obj[0].formItems.password.value = values.password;
                 obj[1].formItems.company_name.value = values.company_name;
                 obj[1].formItems.company_profile.value = values.company_profile;
                 obj[1].formItems.cst.value = values.details.cst;

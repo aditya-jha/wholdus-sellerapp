@@ -16,6 +16,20 @@ img {
     width: 100%;
     height: 100%;
 }
+
+.break-word {
+    word-wrap: break-word;
+}
+.center {
+    text-align: center;
+}
+.bold {
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline !important;
+}
 .success{
     border: 0.1em solid #259b24;
     border-radius: 6px;
@@ -376,14 +390,14 @@ md-list-item > a {
     z-index: 99999;
 }
 /** end ngProgress loader css*/
-input[type="number"]::-webkit-inner-spin-button, 
-input[type="number"]::-webkit-outer-spin-button { 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 input[type="number"] {
-    -moz-appearance:textfield;
+    -moz-appearance:textfield !important;
 }
 .formError{
     /*padding-top: 10px;*/

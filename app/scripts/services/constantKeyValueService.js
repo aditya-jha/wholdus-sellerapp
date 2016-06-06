@@ -13,8 +13,9 @@
                     buyers: 'users/buyer',
                     sellers: 'users/seller',
                     orders: 'orders',
-                    shipments: 'shipments',
                     sellerpayment: 'sellerpayment',
+                    subOrders: 'suborder',
+                    shipments: 'ordershipment',
                     products: 'products',
                     sellerLogin: 'users/seller/login'
                 },
@@ -24,7 +25,7 @@
                 showProductMessage: 'The product will go live on the website once the changes have been verified',
                 noProductsMessage: 'Upload products and start distribution',
                 deleteProductMessage: 'This product has successfully been deleted',
-                
+
                 sellerSignup: [
                     {
                         label: 'Personal Details',
@@ -63,10 +64,9 @@
                                 required: false,
                                 value: '',
                                 pattern:''
-                          
+
                             },
                             password: {
-                                
                                 label: 'Password',
                                 name:'password',
                                 type: 'password',

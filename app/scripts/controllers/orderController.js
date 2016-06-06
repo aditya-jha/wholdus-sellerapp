@@ -16,15 +16,29 @@
                 noOrders: false
             };
 
-            function fetchOrders(params) {
+            function setPageType() {
+                $scope.page = $scope.settings.activePage == '1' ? 'acknowledge' : 'shipment';
+            }
+            setPageType();
+
+            function fetchOrders(params, urlType) {
                 $scope.settings.noOrders = false;
                 $rootScope.$broadcast('showProgressbar');
-                var apicall = APIService.apiCall("GET", APIService.getAPIUrl("orders"), null, params);
+                var apicall = APIService.apiCall("GET", APIService.getAPIUrl(urlType), null, params);
                 apicall.then(function(response) {
                     $rootScope.$broadcast('endProgressbar');
-                    $scope.orders = response.order_items;
-                    if(response.order_items.length === 0) {
-                        $scope.settings.noOrders = true;
+                    if($scope.settings.activePage === 0) {
+                        if(response.sub_orders.length === 0) {
+                            $scope.settings.noOrders = true;
+                        } else {
+                            $scope.orders = response.sub_orders;
+                        }
+                    } else if($scope.settings.activePage === 1 || $scope.settings.activePage === 2) {
+                        if(response.order_shipments.length === 0) {
+                            $scope.settings.noOrders = true;
+                        } else {
+                            $scope.orders = response.order_shipments;
+                        }
                     }
                 }, function(error) {
                     $rootScope.$broadcast('endProgressbar');
@@ -39,14 +53,15 @@
             $scope.$watch('settings.activePage', function() {
                 if($scope.settings.activePage === 0) {
                     $scope.orders = [];
-                    fetchOrders({status: '1'});
+                    fetchOrders({status: '1'}, 'subOrders');
                 } else if($scope.settings.activePage === 1) {
                     $scope.orders = [];
-                    fetchOrders({status: '2,3'});
+                    fetchOrders({status: '3'}, 'shipments');
                 } else {
                     $scope.orders = [];
-                    fetchOrders({status: '4,5,6,7,8'});
+                    fetchOrders({status: '4,5,6,7,8,9'}, 'shipments');
                 }
+                setPageType();
             });
         }
     ]);

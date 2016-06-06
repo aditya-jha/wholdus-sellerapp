@@ -3,7 +3,7 @@
     <div class="md-padding profile-detail-card" md-whiteframe="4dp" flex>
         <div flex layout-xs="column" layout-gt-xs="column" layout-align="center">
             <span class="md-title">{{ seller.personal_details.label }}</span>
-            <md-input-container data-ng-repeat="item in seller.personal_details.formItems">
+            <md-input-container data-ng-repeat="item in seller.personal_details.formItems" data-ng-if="item.type!='password'">
                 <label>{{ item.label }}</label>
                 <input type="{{ item.type }}" data-ng-disabled="item.type=='email'" data-ng-model="item.value" data-ng-required="item.required">
             </md-input-container>
