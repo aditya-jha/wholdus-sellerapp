@@ -16,11 +16,11 @@
                             <span>{{ p.details.seller_catalog_number }}</span>
                         </div>
                         <div layout="column" class="card-item">
-                            <span>{{ p.name }}</span>
+                            <a data-ng-href="http://www.wholdus.com/{{p.url}}" target="_blank"><span>{{ p.name }}</span><md-tooltip md-direction="bottom">view on website</md-tooltip></a>
                         </div>
                         <div layout="column" class="card-item">
                             <span class="card-item-title" flex>Category</span>
-                            <span>{{ p.category.display_name }}</span>
+                            <a data-ng-href="http://www.wholdus.com/{{p.category.url}}" target="_blank"><span>{{ p.category.display_name }}<md-tooltip md-direction="right">view on website</md-tooltip></span></a>
                         </div>
                     </div>
                     <div layout="column" flex="25" flex-xs="100">
