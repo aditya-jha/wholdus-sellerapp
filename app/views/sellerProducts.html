@@ -20,7 +20,7 @@
                         </div>
                         <div layout="column" class="card-item">
                             <span class="card-item-title" flex>Category</span>
-                            <a data-ng-href="http://www.wholdus.com/{{p.category.url}}" target="_blank"><span>{{ p.category.display_name }}<md-tooltip md-direction="right">view on website</md-tooltip></span></a>
+                            <a data-ng-href="http://www.wholdus.com/{{p.category.url}}" target="_blank"><span>{{ p.category.display_name }}<md-tooltip md-direction="bottom">view on website</md-tooltip></span></a>
                         </div>
                     </div>
                     <div layout="column" flex="25" flex-xs="100">
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <div layout="row" data-ng-show="pageSettings.enablePagination" wd-pagination></div>
+            <div layout="row" layout-margin data-ng-show="pageSettings.enablePagination" wd-pagination></div>
         </div>
     </md-content>
 </div>
