@@ -24,6 +24,9 @@
         <div layout="row" flex="50" flex-xs="100">
             <md-button class="md-raised md-primary" data-ng-href="{{o.tracking_url}}" target="_blank" style="max-height: 30px;">
                 <span>Track</span>
+                <md-tooltip data-ng-if="o.tracking_url==''">
+                    Tracking not present
+                </md-tooltip>
             </md-button>
         </div>
         <hr flex/>

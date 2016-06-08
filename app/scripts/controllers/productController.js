@@ -108,7 +108,8 @@
 
                 }, function(error) {
                     $rootScope.$broadcast('endProgressbar');
-                    ToastService.showSimpleToast(error, 5000);
+                    $log.log(error);
+                    ToastService.showSimpleToast("something went wrong", 5000);
                 });
             }
 
