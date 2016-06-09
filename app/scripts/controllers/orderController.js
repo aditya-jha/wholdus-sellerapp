@@ -42,7 +42,6 @@
                     }
                 }, function(error) {
                     $rootScope.$broadcast('endProgressbar');
-                    $log.log(error);
                 });
             }
 
@@ -53,13 +52,13 @@
             $scope.$watch('settings.activePage', function() {
                 if($scope.settings.activePage === 0) {
                     $scope.orders = [];
-                    fetchOrders({status: '1'}, 'subOrders');
+                    fetchOrders({sub_order_status: '1,2'}, 'subOrders');
                 } else if($scope.settings.activePage === 1) {
                     $scope.orders = [];
-                    fetchOrders({status: '3'}, 'shipments');
+                    fetchOrders({order_shipment_status: '3'}, 'shipments');
                 } else {
                     $scope.orders = [];
-                    fetchOrders({status: '4,5,6,7,8,9'}, 'shipments');
+                    fetchOrders({order_shipment_status: '4,5,6,7,8,9'}, 'shipments');
                 }
                 setPageType();
             });
