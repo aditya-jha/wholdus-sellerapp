@@ -6,18 +6,19 @@
               <md-icon md-svg-icon="images/wholdus-logo.svg" class="logo"></md-icon>
           </a>
         </div>
-        </div>  
+        </div>
         <h1 hide-xs show-gt-xs style="margin-left:5px;">
             <a href="/">Wholdus</a>
         </h1>
         <span flex></span>
         <div layout="row" layout-align="center center">
-            <md-button class="md-raised md-warn distribute" md-ripple-size="partial" data-ng-href="http://seller.wholdus.com/distribute-on-wholdus" target="_blank" aria-label="distribute-on-wholdus">
-                Distribute
-            </md-button>
-            
-                <span style="font-size:15px" hide-xs show-gt-xs aria-label="customer_support">+91-7895161705</span>
-            
+            <md-button data-ng-if="!loggedIn" class="md-raised md-warn distribute" ng-click="showLoginPrompt($event)">
+                login
+             </md-button>
+             <md-button data-ng-if="loggedIn" class="md-raised md-warn distribute" ng-click="logout($event)">
+                 logout
+             </md-button>
+             <span style="font-size:15px" hide-xs show-gt-xs aria-label="customer_support">+91-7895161705</span>
         </div>
     </div>
 </md-toolbar>

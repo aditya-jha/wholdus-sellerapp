@@ -75,15 +75,8 @@ a:active {
   min-width: 50px;
   min-height: 50px;
   max-width: 60px;
-  max-height: 60px; }
-
-.md-button.distribute {
-  min-width: 75px;
-  letter-spacing: 0.1em;
-  padding-top: 1.25em;
-  font-size: 12px;
-  line-height: 0;
-  min-height: 30px; }
+  max-height: 60px;
+}
 
 #wholdusTitle {
     font-size: 2em;
@@ -171,22 +164,6 @@ md-list-item > a {
   min-width: 25px;
   font-size: 12px;
 }
-
-/*.avatar {
-    position: relative;
-    width: 128px;
-    height: 128px;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    display: inline-block;
-    overflow: hidden;
-    margin: 0px;
-    vertical-align: middle;
-    zoom: 0.70;
-    transform: translateZ(0);
-    -webkit-transform: scale(0.70);
-    -moz-transform: scale(0.70);
-}*/
 
 .avatar {
     position: relative;
