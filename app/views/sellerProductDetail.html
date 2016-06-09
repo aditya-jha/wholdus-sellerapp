@@ -24,10 +24,13 @@
                 </div>
             </div>
             <div class="product-detail-image" md-whiteframe="4dp">
-                <div flex layout-xs="column" layout-gt-xs="row" layout-align="center">
-                    <img data-ng-if="products" data-ng-src="{{getImageUrl()}}" alt="{{products.name}}" />
+                <div flex layout-xs="column" layout-gt-xs="row" layout-align="center center" layout-padding>
+                        <img data-ng-if="products" data-ng-src="{{getImageUrl()}}" alt="{{products.name}}" />
                     <!-- <img data-ng-src="{{getImageUrl()}}" alt="{{products.name}}" /> -->
-                </div>
+                </div><span flex></span>
+                <div layout ="row" layout-align="center end" layout-margin>
+                        <md-button data-ng-href="http://www.wholdus.com/{{products.url}}" target="_blank" layout-margin data-ng-if = "products.image.image_count>1" class = "md-primary md-raised">+{{products.image.image_count-1}} more<md-tooltip md-direction="bottom">view on website</md-tooltip></md-button>
+                    </div> 
                 <!-- <div flex layout-xs="column" layout-gt-xs="row" layout-align="center">
                     <img src="images/thumbnail.png" alt="image" />
                     <img src="images/thumbnail.png" alt="image" />
