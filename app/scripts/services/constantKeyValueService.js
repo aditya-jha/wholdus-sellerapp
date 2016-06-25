@@ -17,7 +17,8 @@
                     subOrders: 'suborder',
                     shipments: 'ordershipment',
                     products: 'products',
-                    sellerLogin: 'users/seller/login'
+                    sellerLogin: 'users/seller/login',
+                    sellerlead: 'leads/seller'
                 },
                 accessTokenKey: 'randomData',
                 sellerSuccessSignup: "Your application has been sent for approval. You will soon be contacted by our executive",
