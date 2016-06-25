@@ -91,6 +91,13 @@ a:active {
 .header-content-right {
     margin-top: 0em;
 }
+.md-button.log{
+    min-width: 75px;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    line-height: 0;
+    min-height: 30px;
+}
 
 .filler-container {
     width: 100%;
