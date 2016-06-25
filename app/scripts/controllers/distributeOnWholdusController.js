@@ -21,16 +21,17 @@
                     var mobNum=Number(mobStr.substr(mobStr.length-10,10));             
                     var url = "/register?email="+$scope.email+"&mobile_number="+
                     mobNum+"&company_name="+$scope.name;
-                    $location.url(url);
-                    // var data = {
-                    //     email: $scope.email,
-                    //     mobile_number: $scope.mobile_number,
-                    //     name: $scope.name
-                    // };
-                    // APIService.apiCall("POST", APIService.getAPIUrl('sellerSignup'), data)
-                    // .then(function(response) {
-                    //
-                    // }, function(error) {});
+                    
+                    var data = {
+                        email: $scope.email,
+                        mobile_number: $scope.mobile_number,
+                        company_name: $scope.name
+                    };
+                    APIService.apiCall("POST", APIService.getAPIUrl('sellerlead'), data)
+                    .then(function(response) {
+                    }, function(error) {
+                    });
+                     $location.url(url);
                 } else {
                     ToastService.showSimpleToast("Please fill required details", 2000);
                 }
