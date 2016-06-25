@@ -6,7 +6,8 @@
         '$log',
         '$location',
         '$window',
-        function($rootScope, $log, $location, $window) {
+        'ConstantKeyValueService',
+        function($rootScope, $log, $location, $window, ConstantKeyValueService) {
             var factory = {};
 
             factory.formatSellerDataToPost = function(data) {
@@ -91,6 +92,30 @@
                 obj[3].formItems.branch.value = values.bank_details.length ? values.bank_details[0].branch : null;
                 obj[3].formItems.branch_pincode.value = values.bank_details.length ? values.bank_details[0].branch_pincode : null;
                 obj[3].formItems.ifsc.value = values.bank_details.length ? values.bank_details[0].ifsc : null;
+            };
+
+
+            factory.getImages = function(item) {
+                var image = item.image;
+                if(image.image_count) {
+                    var images = [];
+                    var imageNumbers = image.image_numbers;
+                    var imagePath = image.image_path;
+                    if(imagePath.indexOf('static/') === 0) {
+                        imagePath = imagePath.substr(7);
+                    }
+                    angular.forEach(image.image_numbers, function(value, key) {
+                        var base = ConstantKeyValueService.apiBaseUrl + imagePath;
+                        var end = image.image_name + '-' + value + '.jpg';
+                        images.push({base:base, end:end});
+                    });
+                    return images;
+                }
+                return [];
+            };
+
+              factory.getImageUrl = function(image, size) {
+                return image.base + size + '/' + image.end;
             };
 
             factory.redirectTo = function(to) {

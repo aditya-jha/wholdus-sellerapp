@@ -12,45 +12,107 @@
             <span flex></span>
             <div layout="row" class="card-item">
                 <span class="card-item-title" flex>Order Date: </span>
-                <span> {{ o.created_at | date }}</span>
+                <span> &nbsp;{{ o.created_at | date }}</span>
             </div>
         </div>
-        <div layout="row" flex="100" layout-wrap data-ng-repeat="oi in o.order_items">
-            <div layout="row" flex="50" flex-xs="100" layout-wrap>
-                <div layout="row" flex="100" layout-wrap>
-                    <div layout="column" class="card-item" flex="100">
-                        <span class="card-item-title" flex>Product</span>
-                        <span class="bold">{{oi.product.name}}</span>
+        <div layout="row" flex="100" layout-wrap>
+                   
+               
+                     
+                        <div layout="column" class="card-item" flex="20" flex-xs="50">
+                            <span class="card-item-title" flex>Total Price</span>
+                            <span class="bold">Rs. {{o.final_price}}</span>
+                        </div>
+                        <div layout="column" class="card-item" flex="20" flex-xs="50">
+                            <span class="card-item-title" flex>Products</span>
+                            <span class="bold">{{o.product_count}}</span>
+
+                        </div>
+                        
+                        <div layout="column" class="card-item" flex="30" flex-xs="50">
+                            <span class="card-item-title" flex>Status</span>
+                            <span class="bold">{{o.sub_order_status.display_value}}</span>
+                        </div>
+                    
+                    
+
+                   
+                
+        </div>
+       
+        <div layout="row" flex="100"  layout-align="center center" style="margin:0.5em">
+            <div layout="row" flex="100"  class="property-title" md-whiteframe="2">
+               <span style="margin:auto;" > Products in Order </span>
+            </div>
+        </div>
+        <div layout="row" flex="100"  layout-wrap data-ng-repeat="oi in o.order_items">
+          
+               
+
+                <div layout="row" flex="50" flex-xs="100" layout-wrap>
+                    <div layout="row" flex="5"  layout-align="end start">
+                        <span class="bold md-title" >{{$index+1}}. </span>
+                    </div>   
+                     <div layout="row" flex="30"  layout-align="center center">
+                        <div style="width: 100px;max-height: 140px;" layout-align="center center">
+                            <img data-ng-src="{{oi.product.imageUrl}}" class="small-image">
+                        </div>
                     </div>
-                    <div layout="column" class="card-item" flex="100">
-                        <span class="card-item-title" flex>Catalog No.</span>
-                        <span>{{oi.product.details.seller_catalog_number}}</span>
+                    <div layout="row" flex="65"  layout-wrap>
+                        <div layout="column" class="card-item" flex="100">
+                            <span class="card-item-title" flex>Product</span>
+                            <span class="bold">{{oi.product.name}}</span>
+
+                        </div>
+                        <div layout="column" class="card-item" flex="100">
+                            <span class="card-item-title" flex>Catalog No.</span>
+                            <span>{{oi.product.details.seller_catalog_number}}</span>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div layout="row" flex="25" flex-xs="100" layout-wrap>
-                <div layout="column" class="card-item" flex="100" flex-xs="50">
-                    <span class="card-item-title">Remarks</span>
-                    <span>{{oi.remarks ? oi.remarks : 'No Remarks'}}</span>
+
+                <div layout="row" flex="15  " flex-xs="100" layout-wrap>
+                    <div layout="column" class="card-item" flex="100" flex-xs="50">
+                        <span class="card-item-title">Remarks</span>
+                        <span>{{oi.remarks ? oi.remarks : 'No Remarks'}}</span>
+                    </div>
+                    <div layout="column" class="card-item" flex="100" flex-xs="50">
+                        <span class="card-item-title">Pieces</span>
+                        <span>{{oi.pieces}}</span>
+                    </div>
                 </div>
-                <div layout="column" class="card-item" flex="100" flex-xs="50">
-                    <span class="card-item-title">Pieces</span>
-                    <span>{{oi.pieces}}</span>
+                <div layout="row" flex="20" flex-xs="100" layout-wrap>
+                    <div layout="column" class="card-item" flex="100" flex-xs="50">
+                        <span class="card-item-title">Price per piece</span>
+                        <span>Rs. {{oi.edited_price_per_piece}}</span>
+                    </div>
+                    <div layout="column" class="card-item" flex="100" flex-xs="50">
+                        <span class="card-item-title">Amount</span>
+                        <span class="bold">Rs. {{oi.final_price}}</span>
+                    </div>
                 </div>
-            </div>
-            <div layout="row" flex="25" flex-xs="100" layout-wrap>
-                <div layout="column" class="card-item" flex="100" flex-xs="50">
-                    <span class="card-item-title">Price per piece</span>
-                    <span>Rs. {{oi.edited_price_per_piece}}</span>
+                <div layout="row" flex="15" flex-xs="100" layout-wrap>
+
+                   <div layout="column" class="card-item" flex="100" flex-xs="50">
+                    <span class="card-item-title">Status</span>
+                    <span class="bold">{{oi.order_item_status.display_value}}</span>
                 </div>
+
                 <div layout="column" class="card-item" flex="100" flex-xs="50">
-                    <span class="card-item-title">Amount</span>
-                    <span class="bold">Rs. {{oi.final_price}}</span>
+                    <a data-ng-href="{{oi.tracking_url}}" target="_blank">
+                        <md-button class="md-raised md-primary" 
+                        ng-if="oi.order_item_status.value >= 5">TRACK</md-button></a>
                 </div>
-            </div>
-            <div layout="row" flex="100" flex-xs="100">
-                <hr data-ng-if="!$last" flex/>
-            </div>
+
+                </div> 
+                <div layout="row" flex="100" flex-xs="100">
+                    <hr data-ng-if="!$last" flex/>
+                </div>
+            
+
+
+            
         </div>
     </div>
 </div>
