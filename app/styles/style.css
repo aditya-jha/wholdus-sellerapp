@@ -426,3 +426,19 @@ input[type="number"] {
 .logo-container {
   height: 50px;
   width: 50px; }
+
+  .small-image{
+    width: 100px;
+    max-height: 150px;
+}
+
+.property-title{
+  background: #512DA8;
+  color: #fff;
+    padding: 0.5em;
+    text-align: center;
+    /*font-size: 1.2em;*/
+     font-family: 'Comfortaa', cursive;
+     border-radius: 5px;
+
+}

@@ -10,7 +10,9 @@
         '$timeout',
         '$window',
         'ngProgressBarService',
-        function($scope, $rootScope, APIService, ConstantKeyValueService, UtilService, $log, $timeout, $window, ngProgressBarService) {
+     
+        function($scope, $rootScope, APIService, ConstantKeyValueService, UtilService, $log, $timeout,
+         $window, ngProgressBarService) {
             $scope.settings = {
                 activePage: 0,
                 noOrders: false
@@ -27,18 +29,24 @@
                 var apicall = APIService.apiCall("GET", APIService.getAPIUrl(urlType), null, params);
                 apicall.then(function(response) {
                     $rootScope.$broadcast('endProgressbar');
-                    if($scope.settings.activePage === 0) {
+                  
                         if(response.sub_orders.length === 0) {
                             $scope.settings.noOrders = true;
                         } else {
+                            for(var i=0;i<response.sub_orders.length;i++){
+                            angular.forEach(response.sub_orders[i].order_items, function(value, key) {
+                                value.product.images = UtilService.getImages(value.product);
+                                if(value.product.images.length){
+                                    value.product.imageUrl = UtilService.getImageUrl(value.product.images[0], '200x200');
+                                }
+                                else{
+                                    value.product.imageUrl = 'images/200.png';
+                                }
+                            });
+                            }
                             $scope.orders = response.sub_orders;
-                        }
-                    } else if($scope.settings.activePage === 1 || $scope.settings.activePage === 2) {
-                        if(response.order_shipments.length === 0) {
-                            $scope.settings.noOrders = true;
-                        } else {
-                            $scope.orders = response.order_shipments;
-                        }
+                        
+                    
                     }
                 }, function(error) {
                     $rootScope.$broadcast('endProgressbar');
@@ -52,13 +60,13 @@
             $scope.$watch('settings.activePage', function() {
                 if($scope.settings.activePage === 0) {
                     $scope.orders = [];
-                    fetchOrders({sub_order_status: '1,2'}, 'subOrders');
+                    fetchOrders({sub_order_status: '1,2,3'}, 'subOrders');
                 } else if($scope.settings.activePage === 1) {
                     $scope.orders = [];
-                    fetchOrders({order_shipment_status: '3'}, 'shipments');
+                    fetchOrders({sub_order_status:  '4'}, 'subOrders');
                 } else {
                     $scope.orders = [];
-                    fetchOrders({order_shipment_status: '4,5,6,7,8,9'}, 'shipments');
+                    fetchOrders(null, 'subOrders');
                 }
                 setPageType();
             });
