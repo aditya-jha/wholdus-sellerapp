@@ -449,9 +449,10 @@ input[type="number"] {
 .hide-content .content{
   transition: all linear 1.8s;
   width: 100%;
-  max-height: 5555px;
+  max-height: 9555px;
   position: relative;
-  overflow-y: auto;
+  overflow-y: hidden;
+  height: auto;
    top: 0;
   left: 0;
   transition-timing-function: ease-in;
