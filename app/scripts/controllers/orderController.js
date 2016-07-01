@@ -45,7 +45,10 @@
                             });
                             }
                             $scope.orders = response.sub_orders;
-                        
+                            $scope.visible = [];
+                            for(var i =0; i<response.sub_orders.length;i++){
+                                $scope.visible.push(true);
+                            }
                     
                     }
                 }, function(error) {
@@ -56,6 +59,15 @@
             $scope.track = function(url) {
                 $window.open(url, '_blank');
             };
+
+            $scope.showFullDetail = function(i){
+                if($scope.visible[i] === true){
+                    $scope.visible[i] = false;
+                }
+                else{
+                    $scope.visible[i] = true;
+                }
+            }
 
             $scope.$watch('settings.activePage', function() {
                 if($scope.settings.activePage === 0) {

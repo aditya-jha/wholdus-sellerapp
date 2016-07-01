@@ -30,6 +30,9 @@ img {
 .underline {
     text-decoration: underline !important;
 }
+.link:hover {
+    text-decoration: underline;
+}
 .success{
     border: 0.1em solid #259b24;
     border-radius: 6px;
@@ -441,4 +444,22 @@ input[type="number"] {
      font-family: 'Comfortaa', cursive;
      border-radius: 5px;
 
+}
+
+.hide-content .content{
+  transition: all linear 2s;
+  max-height: 5555px;
+  position: relative;
+  top: 0;
+  overflow-y: auto;
+  left: 0;
+  transition-timing-function: ease-in-out;
+  /*transition: 1s linear all;
+  transition-timing-function: ease-in-out;
+    opacity: 1;*/
+}
+
+.hide-content.ng-hide .content{
+  max-height: 0px;
+  /*opacity: 0;*/
 }
