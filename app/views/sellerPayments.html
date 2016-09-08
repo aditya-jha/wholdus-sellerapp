@@ -1,0 +1,79 @@
+<div class="container" layout="row" flex>
+    <div layout="row" psa-sidenav></div>
+    <md-content class="md-padding" layout-xs="column" layout-gt-xs="column" flex>
+        <md-content md-padding ng-cloak>
+            <div layout="column" data-ng-if = "payment.length > 0" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat = "p in payment">
+                <span class="order-number"><strong>Order No: {{ p.suborderID }}</strong></span>
+                <div layout="column" flex>
+                    <div layout="row" layout-xs="column" flex data-ng-repeat="o in p.order_items">
+                        <div layout="column" flex="50" flex-xs="100">
+                            <span class="product-name">{{ o.product.name }}</span>
+                            <div layout="row" flex class="card-item-row">
+                                <div layout="column" class="card-item" flex="50">
+                                    <span class="card-item-title" flex>Catalog No</span>
+                                    <span>{{ o.product.details.seller_catalog_number }}</span>
+                                </div>
+                                <div layout="column" class="card-item" flex="25">
+                                    <span class="card-item-title" flex>Lots</span>
+                                    <span>{{ o.lots }}</span>
+                                </div>
+                                <div layout="column" class="card-item" flex="25">
+                                    <span class="card-item-title" flex>Lot-size</span>
+                                    <span>{{ o.lot_size }}</span>
+                                </div>
+                            </div>
+                            <div layout="row" flex class="card-item-row">
+                                <div layout="column" class="card-item" flex>
+                                    <span class="card-item-title" flex>Order Date</span>
+                                    <span>{{ p.created_at | date }}</span>
+                                </div>
+                                <div class="card-item" flex>
+                                    <div layout="column" flex class="card-item">
+                                        <span class="card-item-title" flex>Amount</span>
+                                        <span>Rs. {{ o.final_price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <md-button class="md-raised md-primary">Invoice</md-button>
+                        </div>
+                        <hr flex/>
+                        <div layout="row" flex="50" flex-xs="100">
+                            <div layout="column" flex-xs="100" flex="50">
+                                <div layout="column" flex class="card-item">
+                                    <span class="card-item-title" flex>Service Fee(10%)</span>
+                                    <span>{{o.final_price/10}}</span>
+                                </div>
+                                <div layout="column" flex class="card-item">
+                                    <span class="card-item-title" flex>Service Tax(0%)</span>
+                                    <span flex>0</span>
+                                </div>
+                                <div layout="column" class="card-item">
+                                    <span class="card-item-title">Payment</span>
+                                    <span>Rs. {{ p.payment_value }}</span>
+                                </div>
+                            </div>
+                            <div layout="column" flex-xs="100" flex="50">
+                                <div layout="column" flex class="card-item">
+                                    <span class="card-item-title" flex>Payment Details</span>
+                                    <span>{{ p.details }}</span>
+                                </div>
+                                <div layout="column" flex class="card-item">
+                                    <span class="card-item-title" flex>Date of payment</span>
+                                    <span>{{ p.payment_time | date }}</span>
+                                </div>
+                                <div layout="column" flex class="card-item">
+                                    <span class="card-item-title" flex>Payment mode</span>
+                                    <span flex>{{ p.seller_payment_method.display_value }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <hr data-ng-if="!$last"flex/></hr> -->
+                </div>
+            </div>
+            <div layout="row" layout-align="center center" data-ng-if="settings.noPayments">
+                No payments have been made!
+            </div>
+        </md-content>
+    </md-content>
+</div>

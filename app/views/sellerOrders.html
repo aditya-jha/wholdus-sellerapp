@@ -1,0 +1,20 @@
+<div class="container" layout="row" flex>
+    <div layout="row" psa-sidenav></div>
+    <md-content layout="row" class="md-padding" layout-xs="column" layout-gt-xs="column" layout-fill>
+        <md-tabs md-dynamic-height md-border-bottom md-selected="settings.activePage">
+            <md-tab label="New">
+                <md-content md-padding ng-cloak data-ng-if="settings.activePage==0" data-ng-include="'views/partials/sellerOrdersAcknowledge.html'">
+                </md-content>
+            </md-tab>
+            <md-tab label="Shipped">
+                <md-content md-padding ng-cloak data-ng-if="settings.activePage==1" data-ng-include="'views/partials/sellerOrdersAcknowledge.html'">
+                </md-content>
+            </md-tab>
+            <md-tab label="All">
+                <md-content md-padding ng-cloak data-ng-if="settings.activePage==2" data-ng-include="'views/partials/sellerOrdersAcknowledge.html'">
+                </md-content>
+            </md-tab>
+        </md-tabs>
+       
+    </md-content>
+</div>

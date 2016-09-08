@@ -1,0 +1,138 @@
+<div layout="row" layout-wrap data-ng-if="orders.length>0" flex md-whiteframe="4dp" md-padding class="order-acknowledge-card" data-ng-repeat="o in orders">
+    <div layout="row" flex="100" layout-wrap>
+        <div layout="row" layout-xs="column" flex="100">
+            <span class="order-number">
+                <strong>Order No:
+                    <a data-ng-href="/my-orders/{{o.orderID}}/{{o.suborderID}}/{{settings.activePage}}" class="underline">
+                        {{ o.display_number }}
+                    </a>
+                    <md-tooltip>View Details</md-tooltip>
+                </strong>
+            </span>
+            <span flex></span>
+            <div layout="row" class="card-item">
+                <span class="card-item-title" flex>Order Date: </span>
+                <span> &nbsp;{{ o.created_at | date }}</span>
+            </div>
+        </div>
+        <div layout="row" flex="100" layout-wrap>
+                   
+               
+                     
+                        <div layout="column" class="card-item" flex="20" flex-xs="50">
+                            <span class="card-item-title" flex>Total Price</span>
+                            <span>Rs. {{o.final_price}}</span>
+                        </div>
+                        <div layout="column" class="card-item" flex="20" flex-xs="50">
+                            <span class="card-item-title" flex>Products</span>
+                            <span>{{o.product_count}}</span>
+
+                        </div>
+                        
+                        <div layout="column" class="card-item" flex="30" flex-xs="50">
+                            <span class="card-item-title" flex>Status</span>
+                            <span>{{o.sub_order_status.display_value}}</span>
+                        </div>
+
+                        <div layout="row" flex="20" layout-align="end center">
+                            <md-button ng-if="visible[$index]==true" ng-click="showFullDetail($index)" class="md-warn md-fab md-mini" layout="row" layout-align="center center"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                            <path fill="#FFFFFF" d="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z" />
+                            </svg><md-tooltip md-delay="400" md-direction="bottom" md-autohide="true">
+                              Show Contents
+                            </md-tooltip></md-button>
+                            <md-button ng-if="visible[$index]==false" ng-click="showFullDetail($index)" class="md-warn md-fab md-mini" layout="row" layout-align="center center"><svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="#FFFFFF" d="M7.41,18.41L6,17L12,11L18,17L16.59,18.41L12,13.83L7.41,18.41M7.41,12.41L6,11L12,5L18,11L16.59,12.41L12,7.83L7.41,12.41Z" />
+                            </svg><md-tooltip md-delay="400" md-direction="bottom" md-autohide="true">
+                              Hide Contents
+                            </md-tooltip>
+                            </md-button>
+                        </div>
+                    
+                    
+
+                   
+                
+        </div>
+       
+        
+       <div class="hide-content" flex = "100">
+        <div class="content" ng-hide="visible[$index]">
+        <div layout="row" flex="100"  layout-align="center center" style="margin:0.5em">
+            <div layout="row" flex="100"  class="property-title" md-whiteframe="2">
+               <span style="margin:auto;" > Products in Order </span>
+            </div>
+        </div>
+
+        <div layout="row" flex="100" layout-wrap data-ng-repeat="oi in o.order_items">
+          
+           <div layout="row" flex="50" flex-xs="100" layout-wrap>
+                    <div layout="row" flex="5" flex-xs="10" layout-align="start start">
+                        <span class="bold md-title" >{{$index+1}}. </span>
+                    </div>   
+                     <div layout="row" flex="30"  layout-align="center center">
+                        <div style="width: 100px;max-height: 140px;" layout-align="center center">
+                            <img data-ng-src="{{oi.product.imageUrl}}" class="small-image">
+                        </div>
+                    </div>
+                    <div layout="row" flex="65" flex-xs="60" layout-wrap>
+                        <div layout="column" class="card-item" flex="100">
+                            <span class="card-item-title" flex>Product</span>
+                            <a class="link" href="http://www.wholdus.com/{{oi.product.url}}" target="_blank"><span>{{oi.product.name}}</span><md-tooltip md-delay="200" md-direction="bottom" md-autohide="true">
+                              View on website
+                            </md-tooltip></a>
+
+                        </div>
+                        <div layout="column" class="card-item" flex="100">
+                            <span class="card-item-title" flex>Catalog No.</span>
+                            <span>{{oi.product.details.seller_catalog_number}}</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div layout="row" flex="15  " flex-xs="100" layout-wrap>
+                    <div layout="column" class="card-item" flex="100" flex-xs="50">
+                        <span class="card-item-title">Remarks</span>
+                        <span>{{oi.remarks ? oi.remarks : 'No Remarks'}}</span>
+                    </div>
+                    <div layout="column" class="card-item" flex="100" flex-xs="50">
+                        <span class="card-item-title">Pieces</span>
+                        <span>{{oi.pieces}}</span>
+                    </div>
+                </div>
+                <div layout="row" flex="20" flex-xs="100" layout-wrap>
+                    <div layout="column" class="card-item" flex="100" flex-xs="50">
+                        <span class="card-item-title">Price per piece</span>
+                        <span>Rs. {{oi.edited_price_per_piece}}</span>
+                    </div>
+                    <div layout="column" class="card-item" flex="100" flex-xs="50">
+                        <span class="card-item-title">Amount</span>
+                        <span>Rs. {{oi.final_price}}</span>
+                    </div>
+                </div>
+                <div layout="row" flex="15" flex-xs="100" layout-wrap>
+
+                   <div layout="column" class="card-item" flex="100" flex-xs="50">
+                    <span class="card-item-title">Status</span>
+                    <span>{{oi.order_item_status.display_value}}</span>
+                </div>
+
+                <div layout="column" class="card-item" flex="100" flex-xs="50">
+                    <a data-ng-href="{{oi.tracking_url}}" target="_blank">
+                        <md-button class="md-raised md-primary" 
+                        ng-if="oi.order_item_status.value >= 5">TRACK</md-button></a>
+                </div>
+
+                </div> 
+                <div layout="row" flex="100" flex-xs="100">
+                    <hr data-ng-if="!$last" flex/>
+                </div>
+            
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div data-ng-if="settings.noOrders" layout="column" layout-align="center center">
+    No Orders!
+</div>

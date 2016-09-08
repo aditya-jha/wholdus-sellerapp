@@ -1,0 +1,103 @@
+<div class="container" layout="row" flex>
+    <div layout="row" psa-sidenav></div>
+    <md-content layout="row" class="md-padding" flex layout-wrap>
+        <div layout="row" layout-wrap flex="100" layout-align="space-between start">
+            <div flex="100">
+                Order No: <span class="bold underline">{{order.display_number}}</span>
+            </div>
+            <div layout="row" flex="45" flex-xs="100" class="order-acknowledge-card" md-whiteframe="4dp" layout-wrap>
+                <span class="bold center underline" flex="100">Buyer Details</span>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="50">Buyer Name</span>
+                    <span flex="50"> {{ order.buyer.name }}</span>
+                </div>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="50">Store / Company Name</span>
+                    <span flex="50"> {{ order.buyer.company_name }}</span>
+                </div>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="50">Delivery Address</span>
+                    <span flex="50"> {{ order.buyer.address[0].address + ', ' + order.buyer.address[0].city + ', ' + order.buyer.address[0].state }}</span>
+                </div>
+            </div>
+            <div layout="row" flex="45" flex-xs="100" class="order-acknowledge-card" md-whiteframe="4dp" layout-wrap>
+                <span class="bold center underline" flex="100">Manufacturer Details</span>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="50">Manufacturer Name</span>
+                    <span flex="50"> {{ order.seller.name }}</span>
+                </div>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="50">Store / Company Name</span>
+                    <span flex="50"> {{ order.seller.company_name }}</span>
+                </div>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="50">Delivery Address</span>
+                    <span flex="50"> {{ order.seller.address[0].address + ', ' + order.seller.address[0].city + ', ' + order.seller.address[0].state }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div layout="row" flex="100" layout-wrap md-whiteframe="4dp" class="order-acknowledge-card" data-ng-repeat="oi in order.order_items">
+            <div layout="column" class="card-item" flex-xs="100" flex="40">
+                <span class="card-item-title">Product</span>
+                <span class="bold break-word" style="padding-right:0.5em;">{{oi.product.name}}</span>
+            </div>
+            <div layout="column" class="card-item" flex-xs="100" flex="15">
+                <span class="card-item-title">Catalog No.</span>
+                <span class="break-word">{{oi.product.details.seller_catalog_number}}</span>
+            </div>
+            <div layout="column" class="card-item" flex-xs="100" flex="15">
+                <span class="card-item-title">Pieces</span>
+                <span class="bold break-word">{{oi.pieces}}</span>
+            </div>
+            <div layout="column" class="card-item" flex-xs="100" flex="15">
+                <span class="card-item-title">Price Per Piece</span>
+                <span class="bold">{{oi.edited_price_per_piece}}</span>
+            </div>
+            <div layout="column" class="card-item" flex-xs="100" flex="15">
+                <span class="card-item-title">Amount</span>
+                <span class="bold">{{oi.final_price}}</span>
+            </div>
+            <div layout="column" class="card-item" flex-xs="100" flex="40">
+                <span class="card-item-title">Remarks</span>
+                <span class="bold">{{oi.remarks ? oi.remarks : 'No Remarks'}}</span>
+            </div>
+        </div>
+
+        <div layout="row" layout-xs="column" flex="100">
+            <!-- <div layout="row" layout-align="space-around center" flex="50" flex-xs="100" layout-wrap data-ng-show="showLabelManifest">
+                <div layout="row" flex="100">
+                    <md-button class="md-raised md-warn">Download Label</md-button>
+                    <md-button class="md-raised md-warn">Download Manifest</md-button>
+                </div>
+                <div layout="row" flex="100">
+                    <div layout="column" class="card-item" flex-xs="100" flex="40">
+                        <span class="card-item-title">Shipment Status</span>
+                        <span class="bold">{{'3PL in transit'}}</span>
+                    </div>
+                </div>
+                <div layout="row" flex="100">
+                    <md-button class="md-raised md-primary" data-ng-href="{{o.tracking_url}}" target="_blank">Track</md-button>
+                </div>
+            </div> -->
+            <div layout="row" flex="100" flex-offset="20" flex-offset-xs="0" layout-wrap class="order-acknowledge-card" md-whiteframe="4dp">
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="20" flex-xs="30">Sub Total</span>
+                    <span class="bold" flex="70">{{order.edited_price}}</span>
+                </div>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="20" flex-xs="30">Shipping Cost</span>
+                    <span class="bold" flex="70">{{order.shipping_charge > 0 ? order.shipping_charge : 'To be calculated'}}</span>
+                </div>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="20" flex-xs="30">COD Cost</span>
+                    <span class="bold" flex="70">{{order.cod_charge > 0 ? order.cod_charge : 'To be calculated'}}</span>
+                </div>
+                <div layout="row" class="card-item" flex="100">
+                    <span class="card-item-title" flex="20" flex-xs="30">Total</span>
+                    <span class="bold" flex="70">{{order.final_price}}</span>
+                </div>
+            </div>
+        </div>
+    </md-content>
+</div>

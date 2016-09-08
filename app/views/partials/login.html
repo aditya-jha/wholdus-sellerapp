@@ -1,0 +1,39 @@
+<md-dialog aria-label="Login"  ng-cloak>
+    <form name="loginForm" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Login</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    x
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-input-container layout-fill>
+                    <label>Email</label>
+                    <input data-ng-model="email" name="email"  ng-pattern="formValidation.emailValidation" required="">
+                         <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$dirty || loginForm.$submitted" role="alert">
+                                <div ng-message="required" class="formError">This is required.</div>
+                                <div ng-message="pattern" class="formError">{{formValidation.emailErrorMessage}}</div>
+                               
+                          </div>
+                </md-input-container>
+
+                <md-input-container layout-fill>
+                    <label>Password</label>
+                    <input type="password" name="password" data-ng-model="password" required />
+                    <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$dirty || loginForm.$submitted" role="alert">
+                    <div ng-message="required" class="formError">This is required.</div>
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="submit" class="md-raised md-warn" ng-click="login()" style="margin-right:20px;">
+                Login
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
