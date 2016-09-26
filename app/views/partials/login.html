@@ -14,11 +14,10 @@
                 <md-input-container layout-fill>
                     <label>Email</label>
                     <input data-ng-model="email" name="email"  ng-pattern="formValidation.emailValidation" required="">
-                         <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$dirty || loginForm.$submitted" role="alert">
-                                <div ng-message="required" class="formError">This is required.</div>
-                                <div ng-message="pattern" class="formError">{{formValidation.emailErrorMessage}}</div>
-                               
-                          </div>
+                    <div ng-messages="loginForm.email.$error" ng-if="loginForm.email.$dirty || loginForm.$submitted" role="alert">
+                        <div ng-message="required" class="formError">This is required.</div>
+                        <div ng-message="pattern" class="formError">{{formValidation.emailErrorMessage}}</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container layout-fill>
