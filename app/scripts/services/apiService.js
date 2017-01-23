@@ -6,7 +6,8 @@
         'ConstantKeyValueService',
         '$location',
         '$q',
-        function($http, ConstantKeyValueService, $location, $q) {
+        'ToastService',
+        function($http, ConstantKeyValueService, $location, $q, ToastService) {
             var factory = {};
 
             function transform(obj) {
@@ -38,13 +39,13 @@
                     timeout: timeout
                 });
                 apiPromise.then(function(response) {
-                    if(response.data.statusCode === '2XX') {
-                        deferred.resolve(response.data.body);
-                    } else {
-                        deferred.reject(response.data.body);
-                    }
+                    deferred.resolve(response.data);
                 }, function(error) {
-                    $location.url('/404');
+                    if (error.status == 500) {
+                        ToastService.showSimpleToast("Something went wrong", 5000);
+                    } else {
+                        $location.url('/404');
+                    }
                     deferred.reject(error);
                 });
 
