@@ -26,7 +26,7 @@
                     factory.loginStatus = true;
                     ConstantKeyValueService.token = token;
                 } else {
-                    factory.loginStatus = false;
+                    factory.logout();
                 }
                 return factory.loginStatus;
             };
